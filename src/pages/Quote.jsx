@@ -5,7 +5,7 @@ import { API_URL, PHONE } from '../config/brand';
 export default function Quote() {
   const [form, setForm] = useState({
     business_name: '',
-    contact_name: '',
+    name: '',
     email: '',
     phone: '',
     address: '',
@@ -13,7 +13,6 @@ export default function Quote() {
     state: 'NJ',
     trap_size: '',
     service_frequency: 'quarterly',
-    notes: '',
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -29,7 +28,15 @@ export default function Quote() {
       const r = await fetch(`${API_URL}/api/quote-requests`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          business_name: form.business_name,
+          trap_size: form.trap_size,
+          service_frequency: form.service_frequency,
+          message: [form.address, form.city, form.state, form.notes].filter(Boolean).join(', '),
+        }),
       });
       if (!r.ok) {
         const data = await r.json().catch(() => ({}));
@@ -100,7 +107,7 @@ export default function Quote() {
               </Field>
               <div className="grid md:grid-cols-2 gap-4">
                 <Field label="Contact name" required>
-                  <input type="text" required value={form.contact_name} onChange={update('contact_name')} className={inputClass} placeholder="Jane Smith" />
+                  <input type="text" required value={form.name} onChange={update('name')} className={inputClass} placeholder="Jane Smith" />
                 </Field>
                 <Field label="Phone" required>
                   <input type="tel" required value={form.phone} onChange={update('phone')} className={inputClass} placeholder="(973) 555-0100" />
@@ -131,16 +138,16 @@ export default function Quote() {
               </Field>
               <Field label="Service frequency">
                 <select value={form.service_frequency} onChange={update('service_frequency')} className={inputClass}>
-                  <option value="one-time">One-time only</option>
+                  <option value="one_time">One-time only</option>
                   <option value="monthly">Monthly</option>
                   <option value="quarterly">Quarterly</option>
-                  <option value="semi-annual">Every 6 months</option>
-                  <option value="annual">Annually</option>
-                  <option value="not_sure">Not sure — recommend for me</option>
+                  <option value="biweekly">Every 2 weeks</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="other">Not sure — recommend for me</option>
                 </select>
               </Field>
               <Field label="Anything else we should know?">
-                <textarea value={form.notes} onChange={update('notes')} rows={4} className={inputClass} placeholder="Outdoor/indoor, access notes, current provider, etc." />
+                <textarea value={form.message} onChange={update('message')} rows={4} className={inputClass} placeholder="Outdoor/indoor, access notes, current provider, etc." />
               </Field>
             </Section>
 
