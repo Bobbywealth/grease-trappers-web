@@ -18,6 +18,8 @@ import Vehicles from './admin/pages/Vehicles.jsx';
 import Invoices from './admin/pages/Invoices.jsx';
 import LiveOps from './admin/pages/LiveOps.jsx';
 import Settings from './admin/pages/Settings.jsx';
+import Marketing from './admin/pages/Marketing.jsx';
+import Reports from './admin/pages/Reports.jsx';
 
 function ProtectedRoute({ children }) {
   const { token, loading } = useAuth();
@@ -111,6 +113,26 @@ export default function App() {
         }
       >
         <Route index element={<LiveOps />} />
+      </Route>
+      <Route
+        path="/marketing"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<Marketing />} />
+      </Route>
+      <Route
+        path="/reports"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<Reports />} />
       </Route>
       <Route
         path="/settings"

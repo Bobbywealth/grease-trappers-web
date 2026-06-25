@@ -3,7 +3,7 @@ import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Users, Briefcase, Radio, Settings, DollarSign, FileBarChart,
   Bell, Search, Plus, ChevronDown, Phone, LogOut, Menu, X, HelpCircle,
-  MoreHorizontal, Home,
+  MoreHorizontal, Zap,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { BUSINESS_NAME, PHONE, PHONE_RAW } from '../../config/brand';
@@ -13,6 +13,7 @@ const navItems = [
   { icon: Users,          label: 'Customers',      path: '/customers' },
   { icon: Briefcase,      label: 'Jobs',           path: '/jobs' },
   { icon: Radio,          label: 'Live Operations', path: '/live-ops' },
+  { icon: Zap,            label: 'SMS Marketing',  path: '/marketing' },
   { icon: Users,          label: 'Staff',          path: '/staff' },
   { icon: Briefcase,      label: 'Vehicles',       path: '/vehicles' },
   { icon: DollarSign,     label: 'Invoices',       path: '/invoices' },
@@ -35,6 +36,7 @@ const titles = {
   '/customers':  { title: 'Customers',       sub: 'Manage restaurants and service contracts' },
   '/jobs':       { title: 'Jobs',            sub: 'Schedule, track, and complete field jobs' },
   '/live-ops':   { title: 'Live Operations', sub: 'Real-time field crew tracking' },
+  '/marketing':  { title: 'SMS Marketing',   sub: 'Reach your customers instantly' },
   '/staff':      { title: 'Staff',           sub: 'Technicians, drivers, and crew assignments' },
   '/vehicles':   { title: 'Vehicles',        sub: 'Fleet and equipment management' },
   '/invoices':   { title: 'Invoices',        sub: 'Billing, payments, and revenue' },
