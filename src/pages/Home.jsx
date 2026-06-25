@@ -169,7 +169,7 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/90 to-transparent" />
 
           {/* Mobile content */}
-          <div className="relative z-10 flex flex-col min-h-screen px-5 pt-44 pb-6 text-center">
+          <div className="relative z-10 flex flex-col min-h-screen px-5 pt-36 pb-6 text-center">
             {/* Availability badge */}
             <div className="animate-fade-up inline-flex mx-auto">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/25 rounded-full px-5 py-2 text-sm font-medium text-white shadow-lg shadow-black/40">
