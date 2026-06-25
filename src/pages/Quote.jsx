@@ -66,7 +66,7 @@ export default function Quote() {
           </p>
           <a
             href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
-            className="inline-flex items-center gap-2 bg-brand-pink text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-pink-600 transition-colors"
+            className="inline-flex items-center gap-2 bg-brand-copper text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-brand-sienna transition-colors"
           >
             <Phone className="w-5 h-5" />
             Call {PHONE}
@@ -86,7 +86,7 @@ export default function Quote() {
             </div>
             <h1 className="font-display text-4xl md:text-6xl font-bold mb-6">
               Get a quote in
-              <span className="block bg-gradient-to-r from-brand-pink to-pink-300 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-brand-copper to-brand-champagne bg-clip-text text-transparent">
                 under 2 hours
               </span>
             </h1>
@@ -160,7 +160,7 @@ export default function Quote() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full bg-brand-pink text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-pink-600 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+              className="w-full bg-brand-copper text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-brand-sienna transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
             >
               {submitting ? (
                 <><Loader2 className="w-5 h-5 animate-spin" /> Submitting...</>
@@ -179,7 +179,7 @@ export default function Quote() {
   );
 }
 
-const inputClass = 'w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-pink focus:border-transparent';
+const inputClass = 'w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-copper focus:border-transparent';
 
 function Section({ title, children }) {
   return (
@@ -194,7 +194,7 @@ function Field({ label, required, children }) {
   return (
     <div>
       <label className="block text-sm font-medium text-gray-700 mb-1.5">
-        {label} {required && <span className="text-brand-pink">*</span>}
+        {label} {required && <span className="text-brand-copper">*</span>}
       </label>
       {children}
     </div>

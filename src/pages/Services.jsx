@@ -110,7 +110,7 @@ export default function Services() {
             </div>
             <h1 className="font-display text-4xl md:text-6xl font-bold mb-6">
               Full-service grease trap
-              <span className="block bg-gradient-to-r from-brand-pink to-pink-300 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-brand-copper to-brand-champagne bg-clip-text text-transparent">
                 management
               </span>
             </h1>
@@ -127,9 +127,9 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6">
             {services.map((s, i) => (
-              <div key={i} className="group p-7 bg-white rounded-2xl border border-gray-200 hover:border-brand-pink hover:shadow-xl transition-all">
+              <div key={i} className="group p-7 bg-white rounded-2xl border border-gray-200 hover:border-brand-copper hover:shadow-xl transition-all">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-pink to-pink-400 text-white flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-copper to-brand-bronze text-white flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     {s.icon}
                   </div>
                   <div>
@@ -140,7 +140,7 @@ export default function Services() {
                 <ul className="space-y-2 mt-4">
                   {s.items.map((item, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm text-gray-700">
-                      <Check className="w-4 h-4 text-brand-pink flex-shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-brand-copper flex-shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -163,7 +163,7 @@ export default function Services() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               to="/quote"
-              className="inline-flex items-center justify-center gap-2 bg-brand-pink text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-pink-600 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-brand-copper text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-brand-sienna transition-colors"
             >
               Get a Free Quote
               <ArrowRight className="w-5 h-5" />

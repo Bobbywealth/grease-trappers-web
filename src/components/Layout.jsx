@@ -15,8 +15,8 @@ export default function Layout({ children }) {
   const linkClass = (to) =>
     `px-3 py-2 text-sm font-medium rounded-md transition-colors ${
       loc.pathname === to
-        ? 'text-brand-pink'
-        : 'text-gray-700 hover:text-brand-pink'
+        ? 'text-brand-copper'
+        : 'text-gray-700 hover:text-brand-copper'
     }`;
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -24,7 +24,7 @@ export default function Layout({ children }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-pink to-pink-400 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-copper to-brand-bronze flex items-center justify-center">
                 <Droplets className="w-5 h-5 text-white" />
               </div>
               <span className="font-display font-bold text-lg text-gray-900">
@@ -39,7 +39,7 @@ export default function Layout({ children }) {
               ))}
               <a
                 href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
-                className="ml-3 inline-flex items-center gap-2 bg-brand-pink text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-pink-600 transition-colors"
+                className="ml-3 inline-flex items-center gap-2 bg-brand-copper text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-sienna transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 {PHONE}
@@ -67,7 +67,7 @@ export default function Layout({ children }) {
               ))}
               <a
                 href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
-                className="block mt-2 text-center bg-brand-pink text-white px-4 py-2 rounded-lg text-sm font-medium"
+                className="block mt-2 text-center bg-brand-copper text-white px-4 py-2 rounded-lg text-sm font-medium"
               >
                 Call {PHONE}
               </a>
@@ -82,7 +82,7 @@ export default function Layout({ children }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-pink to-pink-400 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-brand-copper to-brand-bronze flex items-center justify-center">
                 <Droplets className="w-5 h-5 text-white" />
               </div>
               <span className="font-display font-bold text-lg text-white">

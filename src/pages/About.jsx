@@ -14,7 +14,7 @@ export default function About() {
             </div>
             <h1 className="font-display text-4xl md:text-6xl font-bold mb-6">
               Family-owned NJ grease trap
-              <span className="block bg-gradient-to-r from-brand-pink to-pink-300 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-brand-copper to-brand-champagne bg-clip-text text-transparent">
                 company since 2008
               </span>
             </h1>
@@ -78,7 +78,7 @@ export default function About() {
 
           <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-200">
             <div className="text-center max-w-2xl mx-auto">
-              <Heart className="w-10 h-10 text-brand-pink mx-auto mb-4" />
+              <Heart className="w-10 h-10 text-brand-copper mx-auto mb-4" />
               <h2 className="font-display text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                 Our promise
               </h2>
@@ -93,7 +93,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-brand-pink to-pink-600 text-white">
+      <section className="py-20 bg-gradient-to-br from-brand-copper to-brand-sienna text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
             Join hundreds of NJ kitchens
@@ -105,7 +105,7 @@ export default function About() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               to="/quote"
-              className="inline-flex items-center justify-center gap-2 bg-white text-brand-pink px-6 py-3.5 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white text-brand-copper px-6 py-3.5 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Request Free Quote
               <ArrowRight className="w-5 h-5" />
@@ -127,7 +127,7 @@ export default function About() {
 function ValueCard({ icon, title, desc }) {
   return (
     <div className="p-5 bg-white rounded-xl border border-gray-200">
-      <div className="w-11 h-11 rounded-lg bg-brand-pink/10 text-brand-pink flex items-center justify-center mb-3">
+      <div className="w-11 h-11 rounded-lg bg-brand-copper/10 text-brand-copper flex items-center justify-center mb-3">
         {icon}
       </div>
       <h3 className="font-semibold text-gray-900 mb-1">{title}</h3>

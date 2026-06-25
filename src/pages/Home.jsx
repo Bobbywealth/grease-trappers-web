@@ -11,7 +11,7 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-brand-pink opacity-20 rounded-full blur-3xl" />
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-brand-copper opacity-20 rounded-full blur-3xl" />
         <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-brand-gold opacity-15 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -21,7 +21,7 @@ export default function Home() {
             </div>
             <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight mb-6">
               New Jersey's Most Trusted
-              <span className="block bg-gradient-to-r from-brand-pink to-pink-300 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-brand-copper to-brand-champagne bg-clip-text text-transparent">
                 Grease Trap Specialists
               </span>
             </h1>
@@ -33,7 +33,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 to="/quote"
-                className="inline-flex items-center justify-center gap-2 bg-brand-pink text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-pink-600 transition-colors"
+                className="inline-flex items-center justify-center gap-2 bg-brand-copper text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-brand-sienna transition-colors"
               >
                 Get a Free Quote
                 <ArrowRight className="w-5 h-5" />
@@ -54,7 +54,7 @@ export default function Home() {
           </div>
 
           <div className="hidden md:block relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-pink/30 to-brand-gold/20 rounded-3xl blur-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-copper/30 to-brand-gold/20 rounded-3xl blur-2xl" />
             <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 space-y-4">
               <Stat icon={<Calendar className="w-6 h-6" />} label="Scheduled service" value="500+" unit="tanks maintained monthly" />
               <Stat icon={<Clock className="w-6 h-6" />} label="Emergency response" value="< 2hr" unit="across all of NJ" />
@@ -112,7 +112,7 @@ export default function Home() {
           <div className="text-center mt-10">
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 text-brand-pink font-semibold hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-brand-copper font-semibold hover:gap-3 transition-all"
             >
               See all services
               <ArrowRight className="w-4 h-4" />
@@ -142,7 +142,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-brand-pink to-pink-600 text-white">
+      <section className="py-20 bg-gradient-to-br from-brand-copper to-brand-sienna text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
             Ready to get on the schedule?
@@ -154,7 +154,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               to="/quote"
-              className="inline-flex items-center justify-center gap-2 bg-white text-brand-pink px-6 py-3.5 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-white text-brand-copper px-6 py-3.5 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Request Free Quote
               <ArrowRight className="w-5 h-5" />
@@ -176,7 +176,7 @@ export default function Home() {
 function Stat({ icon, label, value, unit }) {
   return (
     <div className="flex items-start gap-4">
-      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-pink to-pink-400 flex items-center justify-center flex-shrink-0">
+      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-copper to-brand-bronze flex items-center justify-center flex-shrink-0">
         {icon}
       </div>
       <div>
@@ -192,8 +192,8 @@ function Stat({ icon, label, value, unit }) {
 
 function ServiceCard({ icon, title, desc }) {
   return (
-    <div className="group p-6 bg-white rounded-2xl border border-gray-200 hover:border-brand-pink hover:shadow-xl transition-all">
-      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-pink/10 to-pink-100 text-brand-pink flex items-center justify-center mb-4 group-hover:from-brand-pink group-hover:to-pink-500 group-hover:text-white transition-all">
+    <div className="group p-6 bg-white rounded-2xl border border-gray-200 hover:border-brand-copper hover:shadow-xl transition-all">
+      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-copper/10 to-brand-cream text-brand-copper flex items-center justify-center mb-4 group-hover:from-brand-copper group-hover:to-brand-bronze group-hover:text-white transition-all">
         {icon}
       </div>
       <h3 className="font-semibold text-lg text-gray-900 mb-2">{title}</h3>
@@ -205,7 +205,7 @@ function ServiceCard({ icon, title, desc }) {
 function Step({ n, title, desc }) {
   return (
     <div className="relative">
-      <div className="text-7xl font-display font-bold text-brand-pink/20 leading-none mb-2">
+      <div className="text-7xl font-display font-bold text-brand-copper/20 leading-none mb-2">
         {String(n).padStart(2, '0')}
       </div>
       <h3 className="font-semibold text-lg text-gray-900 mb-2">{title}</h3>
