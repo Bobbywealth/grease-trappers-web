@@ -45,9 +45,7 @@ export default function Layout({ children }) {
               <img
                 src="/logo.jpeg"
                 alt={BUSINESS_NAME}
-                className={`h-12 sm:h-14 md:h-16 w-auto transition-all ${
-                  transparent ? 'brightness-100' : 'brightness-100'
-                }`}
+                className="h-[4.5rem] sm:h-14 md:h-[4.75rem] lg:h-20 w-auto transition-all"
               />
             </Link>
 
@@ -113,7 +111,7 @@ export default function Layout({ children }) {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="mb-4">
-              <img src="/logo.jpeg" alt={BUSINESS_NAME} className="h-16 w-auto" />
+              <img src="/logo.jpeg" alt={BUSINESS_NAME} className="h-20 w-auto" />
             </div>
             <p className="text-sm text-gray-400 max-w-md mt-4">
               New Jersey's most trusted grease trap cleaning and pumping service.
