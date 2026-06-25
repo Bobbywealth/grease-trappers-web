@@ -23,24 +23,24 @@ export default function Home() {
               {/* Subtle bronze glow upper-left */}
               <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-copper/30 rounded-full blur-[120px] pointer-events-none" />
               <div className="relative z-10 w-full px-10 lg:px-16 xl:px-20 py-20 max-w-2xl ml-auto">
-                <div className="opacity-0 animate-fade-up">
+                <div className="animate-fade-up">
                   <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-xs sm:text-sm font-medium text-white">
                     <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                     AVAILABLE 24/7 FOR EMERGENCIES
                   </div>
                 </div>
 
-                <h1 className="mt-8 font-display font-extrabold text-white text-4xl lg:text-5xl xl:text-[3.5rem] leading-[1.05] tracking-tight opacity-0 animate-fade-up-delay-1">
+                <h1 className="mt-8 font-display font-extrabold text-white text-4xl lg:text-5xl xl:text-[3.5rem] leading-[1.05] tracking-tight animate-fade-up-delay-1">
                   Commercial{' '}
                   <span className="text-brand-gold">Grease Trap</span>{' '}
                   Cleaning That Restaurants Can Count On
                 </h1>
 
-                <p className="mt-6 text-base lg:text-lg text-gray-300 max-w-[540px] leading-relaxed opacity-0 animate-fade-up-delay-2">
+                <p className="mt-6 text-base lg:text-lg text-gray-300 max-w-[540px] leading-relaxed animate-fade-up-delay-2">
                   Licensed grease trap pumping, cleaning, maintenance, installation and emergency service throughout New Jersey. Fast response. Fully insured. NJDEP compliant.
                 </p>
 
-                <div className="mt-10 flex flex-row gap-3 opacity-0 animate-fade-up-delay-3">
+                <div className="mt-10 flex flex-row gap-3 animate-fade-up-delay-3">
                   <Link
                     to="/quote"
                     className="group inline-flex items-center gap-3 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-copper/50"
@@ -119,27 +119,27 @@ export default function Home() {
 
           {/* Mobile content */}
           <div className="relative z-10 flex flex-col min-h-screen px-6 pt-28 pb-8">
-            <div className="opacity-0 animate-fade-up">
+            <div className="animate-fade-up">
               <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/25 rounded-full px-5 py-2.5 text-xs font-medium text-white shadow-lg shadow-black/20">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 AVAILABLE 24/7 FOR EMERGENCIES
               </div>
             </div>
 
-            <h1 className="mt-8 font-display font-extrabold text-white text-[2.75rem] leading-[1.05] tracking-tight opacity-0 animate-fade-up-delay-1">
+            <h1 className="mt-8 font-display font-extrabold text-white text-[2.75rem] leading-[1.05] tracking-tight animate-fade-up-delay-1">
               Commercial{' '}
               <span className="text-brand-gold">Grease Trap</span>{' '}
               Cleaning That Restaurants Can Count On
             </h1>
 
-            <p className="mt-6 text-base text-gray-200 leading-relaxed opacity-0 animate-fade-up-delay-2">
+            <p className="mt-6 text-base text-gray-200 leading-relaxed animate-fade-up-delay-2">
               Licensed grease trap pumping, cleaning, maintenance, installation and emergency service throughout New Jersey.<br />
               Fast response.<br />
               Fully insured.<br />
               NJDEP compliant.
             </p>
 
-            <div className="mt-10 opacity-0 animate-fade-up-delay-3">
+            <div className="mt-10 animate-fade-up-delay-3">
               <Link
                 to="/quote"
                 className="group flex items-center justify-center gap-3 w-full text-white font-bold text-base px-8 py-4 rounded-2xl transition-all duration-300 active:translate-y-0 active:shadow-lg"
@@ -154,7 +154,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="mt-4 opacity-0 animate-fade-up-delay-3">
+            <div className="mt-4 animate-fade-up-delay-3">
               <a
                 href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
                 className="flex items-center justify-center gap-2 w-full bg-white/10 backdrop-blur-md border-2 border-white/30 hover:bg-white/20 text-white font-bold text-base px-8 py-4 rounded-2xl transition-all"
@@ -167,7 +167,7 @@ export default function Home() {
 
             <div className="flex-1 min-h-[48px]" />
 
-            <div className="opacity-0 animate-fade-up-delay-4">
+            <div className="animate-fade-up-delay-4">
               <div className="flex flex-col items-center text-center gap-3.5 mx-auto">
                 <div className="flex items-center justify-center gap-3">
                   <div className="flex text-brand-gold">
