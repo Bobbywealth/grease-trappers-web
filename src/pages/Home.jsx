@@ -421,13 +421,13 @@ export default function Home() {
               <Lock className="w-3.5 h-3.5" />
             </span>
             <span className="text-sm text-white/90">Existing customer?</span>
-            <a
-              href="https://grease-trappers-admin-v2.onrender.com/login"
+            <Link
+              to="/login"
               className="text-sm font-bold text-white underline-offset-4 hover:underline flex items-center gap-1"
             >
               Sign in to your account
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
         </Reveal>
       </section>
