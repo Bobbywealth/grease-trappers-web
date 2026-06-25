@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle, Send, Loader2, Phone } from 'lucide-react';
 import { API_URL, PHONE } from '../config/brand';
+import SEO from '../components/SEO';
 
 export default function Quote() {
   const [form, setForm] = useState({
@@ -13,6 +14,7 @@ export default function Quote() {
     state: 'NJ',
     trap_size: '',
     service_frequency: 'quarterly',
+    message: '',
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -35,7 +37,7 @@ export default function Quote() {
           business_name: form.business_name,
           trap_size: form.trap_size,
           service_frequency: form.service_frequency,
-          message: [form.address, form.city, form.state, form.notes].filter(Boolean).join(', '),
+          message: [form.address, form.city, form.state, form.message].filter(Boolean).join(', '),
         }),
       });
       if (!r.ok) {
@@ -52,32 +54,51 @@ export default function Quote() {
 
   if (submitted) {
     return (
-      <section className="py-20 bg-white">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-10 h-10 text-green-600" />
+      <>
+        <SEO
+          title="Quote Request Received | The Grease Trappers, LLC"
+          description="Thank you — we'll be in touch within 2 business hours with your NJ grease trap service quote."
+          canonical="/quote?submitted=1"
+          robots="noindex"
+        />
+        <section className="py-20 bg-white">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="w-10 h-10 text-green-600" />
+            </div>
+            <h1 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Quote request received!
+            </h1>
+            <p className="text-lg text-gray-600 mb-8">
+              We'll review your info and get back to you within 2 business hours.
+              For emergencies, give us a call right now.
+            </p>
+            <a
+              href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
+              className="inline-flex items-center gap-2 bg-brand-copper text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-brand-sienna transition-colors"
+            >
+              <Phone className="w-5 h-5" />
+              Call {PHONE}
+            </a>
           </div>
-          <h1 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Quote request received!
-          </h1>
-          <p className="text-lg text-gray-600 mb-8">
-            We'll review your info and get back to you within 2 business hours.
-            For emergencies, give us a call right now.
-          </p>
-          <a
-            href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
-            className="inline-flex items-center gap-2 bg-brand-copper text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-brand-sienna transition-colors"
-          >
-            <Phone className="w-5 h-5" />
-            Call {PHONE}
-          </a>
-        </div>
-      </section>
+        </section>
+      </>
     );
   }
 
   return (
     <>
+      <SEO
+        title="Free Quote | NJ Grease Trap Cleaning Service"
+        description="Request a free quote for grease trap cleaning, pumping, FOG compliance or emergency service in NJ, NYC or PA. Same-day response. No obligation."
+        canonical="/quote"
+        keywords={[
+          'grease trap quote NJ',
+          'free quote grease trap',
+          'NJ grease trap estimate',
+          'request grease trap service',
+        ]}
+      />
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">

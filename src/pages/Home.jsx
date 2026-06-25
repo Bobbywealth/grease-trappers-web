@@ -5,10 +5,16 @@ import {
   ArrowRight, Check, Star, Phone, Calendar, Users, Building2, Menu
 } from 'lucide-react';
 import { PHONE, HERO_IMAGE } from '../config/brand';
+import SEO from '../components/SEO';
 
 export default function Home() {
   return (
     <>
+      <SEO
+        title="NJ Grease Trap Cleaning & Pumping"
+        description="Licensed grease trap pumping, cleaning, maintenance, installation and 24/7 emergency service throughout New Jersey, NYC & Pennsylvania. NJDEP compliant. Fully insured. Call (888) 982-1989 for a free quote."
+        canonical="/"
+      />
       {/* ============================================================
           HERO — RESPONSIVE: desktop split, mobile stacked
           - Desktop (md+): copy on left, floating image card on right

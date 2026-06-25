@@ -2,10 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Award, ShieldCheck, Users, MapPin, ArrowRight, Phone, Heart } from 'lucide-react';
 import { PHONE } from '../config/brand';
+import SEO from '../components/SEO';
 
 export default function About() {
   return (
     <>
+      <SEO
+        title="About The Grease Trappers | Family-Owned NJ Service Company"
+        description="Family-owned NJ grease trap company since 2008. NJDEP licensed, fully insured, statewide coverage. The Grease Trappers, LLC is New Jersey's most trusted grease trap service."
+        canonical="/about"
+        keywords={[
+          'NJ grease trap company',
+          'New Jersey grease trap service',
+          'family owned grease trap NJ',
+          'NJDEP licensed',
+          'statewide NJ coverage',
+        ]}
+      />
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">

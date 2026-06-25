@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /quote?submitted=
+
+Sitemap: https://grease-trappers-web.onrender.com/sitemap.xml

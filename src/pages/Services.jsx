@@ -5,6 +5,7 @@ import {
   ArrowRight, Check
 } from 'lucide-react';
 import { PHONE } from '../config/brand';
+import SEO from '../components/SEO';
 
 export default function Services() {
   const services = [
@@ -102,6 +103,20 @@ export default function Services() {
 
   return (
     <>
+      <SEO
+        title="Grease Trap Services NJ | Pumping, Cleaning, FOG Compliance"
+        description="Full-service grease trap management in New Jersey, NYC & Pennsylvania. Pumping, used cooking oil pickup, FOG compliance, hydro-jetting, 24/7 emergency response, NJDEP manifests. Free quotes."
+        canonical="/services"
+        keywords={[
+          'grease trap pumping NJ',
+          'grease trap cleaning New Jersey',
+          'FOG compliance',
+          'NJDEP manifest',
+          'used cooking oil pickup',
+          'hydro jetting NJ',
+          'grease interceptor inspection',
+        ]}
+      />
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
