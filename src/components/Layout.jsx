@@ -65,7 +65,7 @@ export default function Layout({ children }) {
                 {PHONE}
               </a>
               <a
-                href="https://grease-trappers-admin.onrender.com/login"
+                href="https://grease-trappers-admin-v2.onrender.com/login"
                 className="ml-2 inline-flex items-center gap-2 bg-white/5 backdrop-blur text-white px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-white/10 border border-white/10 transition-colors"
               >
                 <Lock className="w-3.5 h-3.5" />
@@ -106,7 +106,7 @@ export default function Layout({ children }) {
                 Call {PHONE}
               </a>
               <a
-                href="https://grease-trappers-admin.onrender.com/login"
+                href="https://grease-trappers-admin-v2.onrender.com/login"
                 className="mt-2 flex items-center justify-center gap-2 bg-white/5 text-white px-4 py-3 rounded-xl text-base font-semibold border border-white/10"
                 style={{ minHeight: '48px' }}
               >
