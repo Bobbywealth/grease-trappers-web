@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Droplets, Shield, ShieldCheck, Clock, Award, Truck, FileCheck, Wrench,
-  ArrowRight, Check, Star, Phone, Calendar, Users, Building2, Menu
+  Droplets, ShieldCheck, Clock, Award, Truck, FileCheck, Wrench, ArrowRight,
+  Check, Star, Phone, Calendar, Users, Building2, Menu, Lock, Sparkles, ArrowUpRight
 } from 'lucide-react';
 import { PHONE, HERO_IMAGE } from '../config/brand';
 import SEO from '../components/SEO';
@@ -268,34 +268,46 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
             <FeatureCard
-              icon={<Droplets className="w-7 h-7" />}
+              icon={Droplets}
+              accent="from-brand-copper to-brand-sienna"
               title="Grease Trap Pumping"
-              desc="Scheduled or on-demand cleaning for indoor and outdoor traps of any size. Full pump-out, scraping, and rinse."
+              desc="Scheduled or on-demand cleaning for indoor and outdoor traps of any size."
+              features={['Full pump-out', 'Scraping & rinse', 'Indoor & outdoor', 'Any size']}
             />
             <FeatureCard
-              icon={<Truck className="w-7 h-7" />}
+              icon={Truck}
+              accent="from-amber-500 to-orange-600"
               title="Grease Collection"
-              desc="Used cooking oil and yellow grease pickup. We buy it or haul it — your choice. Sealed transfer, no spills."
+              desc="Used cooking oil and yellow grease pickup. We buy it or haul it."
+              features={['We buy or haul', 'Sealed transfer', 'No spills', 'Recycled properly']}
             />
             <FeatureCard
-              icon={<FileCheck className="w-7 h-7" />}
+              icon={FileCheck}
+              accent="from-emerald-500 to-teal-600"
               title="FOG Compliance"
-              desc="NJDEP manifest documentation, interceptor inspections, and municipal FOG program compliance."
+              desc="NJDEP manifest documentation, interceptor inspections, and municipal FOG programs."
+              features={['NJDEP manifests', 'Municipal FOG', 'Interceptors', 'Audit-ready']}
             />
             <FeatureCard
-              icon={<Wrench className="w-7 h-7" />}
+              icon={Wrench}
+              accent="from-sky-500 to-blue-600"
               title="Line Jetting"
-              desc="High-pressure hydro-jetting for clogged drain lines, laterals, and grease-laden sewer pipes."
+              desc="High-pressure hydro-jetting for clogged drains, laterals, and grease-laden sewer pipes."
+              features={['Hydro-jetting', 'Drain lines', 'Sewer laterals', 'Cleared fast']}
             />
             <FeatureCard
-              icon={<Clock className="w-7 h-7" />}
+              icon={Clock}
+              accent="from-rose-500 to-red-600"
               title="24/7 Emergency"
               desc="Backups, overflows, and after-hours emergencies. Real human dispatch — no phone trees."
+              features={['24/7 dispatch', 'No phone trees', 'Real humans', 'Fast response']}
             />
             <FeatureCard
-              icon={<Award className="w-7 h-7" />}
+              icon={Award}
+              accent="from-violet-500 to-purple-600"
               title="Maintenance Plans"
-              desc="Monthly, quarterly, or custom schedules. Predictable pricing, priority service, and zero missed cleanings."
+              desc="Monthly, quarterly, or custom schedules. Predictable pricing and priority service."
+              features={['Monthly / quarterly', 'Flat-rate pricing', 'Priority service', 'Locked-in rates']}
             />
           </div>
           <div className="text-center mt-12">
@@ -365,6 +377,19 @@ export default function Home() {
               Call {PHONE}
             </a>
           </div>
+          <div className="mt-8 inline-flex items-center gap-3 bg-white/10 backdrop-blur border border-white/20 rounded-full pl-2 pr-5 py-2">
+            <span className="flex items-center justify-center w-7 h-7 rounded-full bg-white text-brand-copper">
+              <Lock className="w-3.5 h-3.5" />
+            </span>
+            <span className="text-sm text-white/90">Existing customer?</span>
+            <a
+              href="https://grease-trappers-admin.onrender.com/login"
+              className="text-sm font-bold text-white underline-offset-4 hover:underline flex items-center gap-1"
+            >
+              Sign in to your account
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </div>
       </section>
     </>
@@ -400,16 +425,53 @@ function Stat({ icon, value, label }) {
 }
 
 // ============================================================
-// FEATURE CARD — services grid
+// FEATURE CARD — services grid (redesigned)
 // ============================================================
-function FeatureCard({ icon, title, desc }) {
+function FeatureCard({ icon: Icon, accent, title, desc, features = [] }) {
   return (
-    <div className="group p-7 sm:p-8 bg-white/[0.03] backdrop-blur border border-white/10 rounded-2xl hover:border-brand-gold/60 hover:bg-white/[0.06] transition-all">
-      <div className="w-14 h-14 rounded-xl bg-brand-copper/20 text-brand-gold flex items-center justify-center mb-5 group-hover:bg-brand-copper group-hover:text-white transition-all">
-        {icon}
+    <div className="group relative p-7 sm:p-8 bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur border border-white/10 rounded-2xl hover:border-brand-gold/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-copper/20 transition-all duration-300 overflow-hidden">
+      {/* Top accent bar */}
+      <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${accent} opacity-60 group-hover:opacity-100 transition-opacity`} />
+
+      {/* Background glow on hover */}
+      <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br ${accent} opacity-0 group-hover:opacity-10 blur-3xl transition-opacity duration-500`} />
+
+      {/* Icon */}
+      <div className={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${accent} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+        <Icon className="w-7 h-7 text-white" strokeWidth={2} />
       </div>
-      <h3 className="font-bold text-lg text-white mb-3">{title}</h3>
-      <p className="text-sm text-gray-400 leading-relaxed">{desc}</p>
+
+      {/* Title + desc */}
+      <h3 className="relative font-bold text-xl text-white mb-2 group-hover:text-brand-gold transition-colors">
+        {title}
+      </h3>
+      <p className="relative text-sm text-gray-400 leading-relaxed mb-5">
+        {desc}
+      </p>
+
+      {/* Feature pills */}
+      {features.length > 0 && (
+        <ul className="relative space-y-2 mb-5">
+          {features.map((f, i) => (
+            <li key={i} className="flex items-center gap-2 text-sm text-gray-300">
+              <span className={`flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${accent} flex items-center justify-center`}>
+                <Check className="w-3 h-3 text-white" strokeWidth={3} />
+              </span>
+              {f}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {/* Bottom CTA row */}
+      <div className="relative pt-5 border-t border-white/5 flex items-center justify-between">
+        <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 group-hover:text-brand-gold transition-colors">
+          Learn more
+        </span>
+        <span className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-brand-copper flex items-center justify-center transition-all">
+          <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-white group-hover:rotate-45 transition-all" />
+        </span>
+      </div>
     </div>
   );
 }

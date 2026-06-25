@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Lock } from 'lucide-react';
 import { BUSINESS_NAME, PHONE } from '../config/brand';
 
 export default function Layout({ children }) {
@@ -64,6 +64,13 @@ export default function Layout({ children }) {
                 <Phone className="w-4 h-4" />
                 {PHONE}
               </a>
+              <a
+                href="https://grease-trappers-admin.onrender.com/login"
+                className="ml-2 inline-flex items-center gap-2 bg-white/5 backdrop-blur text-white px-4 py-2.5 rounded-lg text-sm font-semibold hover:bg-white/10 border border-white/10 transition-colors"
+              >
+                <Lock className="w-3.5 h-3.5" />
+                Login
+              </a>
             </nav>
 
             {/* Mobile hamburger */}
@@ -97,6 +104,14 @@ export default function Layout({ children }) {
                 style={{ minHeight: '48px' }}
               >
                 Call {PHONE}
+              </a>
+              <a
+                href="https://grease-trappers-admin.onrender.com/login"
+                className="mt-2 flex items-center justify-center gap-2 bg-white/5 text-white px-4 py-3 rounded-xl text-base font-semibold border border-white/10"
+                style={{ minHeight: '48px' }}
+              >
+                <Lock className="w-4 h-4" />
+                Login
               </a>
             </div>
           )}
