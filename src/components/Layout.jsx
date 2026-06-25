@@ -72,7 +72,7 @@ export default function Layout({ children }) {
               <img
                 src="/logo.png"
                 alt={BUSINESS_NAME}
-                className="h-[7rem] sm:h-14 md:h-[4.75rem] lg:h-20 w-auto transition-all drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+                className="h-[7rem] sm:h-14 md:h-[4.75rem] lg:h-20 w-auto transition-all drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]"
               />
             </Link>
 
