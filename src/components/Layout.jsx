@@ -149,5 +149,3 @@ export default function Layout({ children }) {
     </div>
   );
 }
-</content>
-</invoke>
