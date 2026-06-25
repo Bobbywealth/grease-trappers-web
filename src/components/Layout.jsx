@@ -65,14 +65,14 @@ export default function Layout({ children }) {
         </a>
       )}
       <header className={headerClass}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-          <div className="flex items-center justify-between h-20 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-4">
+          <div className="flex items-center justify-between h-20">
             {/* Official logo — wordmark built in */}
             <Link to="/" className="flex items-center group md:relative md:static absolute left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0">
               <img
                 src="/logo.png"
                 alt={BUSINESS_NAME}
-                className="h-[4.5rem] sm:h-14 md:h-[4.75rem] lg:h-20 w-auto transition-all drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]"
+                className="h-[7rem] sm:h-14 md:h-[4.75rem] lg:h-20 w-auto transition-all drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
               />
             </Link>
 

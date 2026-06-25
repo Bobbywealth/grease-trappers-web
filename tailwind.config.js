@@ -74,6 +74,10 @@ export default {
           '0%':   { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        underlineGrow: {
+          '0%':   { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' },
+        },
       },
       animation: {
         'zoom-hero': 'zoomHero 20s ease-out forwards',
@@ -93,6 +97,7 @@ export default {
         'spin-slow': 'spinSlow 20s linear infinite',
         'bounce-soft': 'bounceSoft 2s ease-in-out infinite',
         'marquee': 'marquee 30s linear infinite',
+        'underline-grow': 'underlineGrow 1s ease-out forwards',
       },
     },
   },

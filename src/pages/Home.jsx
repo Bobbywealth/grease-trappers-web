@@ -151,86 +151,93 @@ export default function Home() {
           </div>
         </div>
 
-        {/* MOBILE HERO: full-bleed background image, stacked */}
+        {/* MOBILE HERO: redesigned layout */}
         <div className="md:hidden relative min-h-screen">
-          {/* Background image with slow zoom */}
+          {/* Background image */}
           <div className="absolute inset-0 animate-zoom-hero">
             <img
               src={HERO_IMAGE}
               alt="The Grease Trappers crew servicing a NJ restaurant grease trap"
-              className="w-full h-full object-cover object-[center_30%] scale-110"
+              className="w-full h-full object-cover object-[center_60%] scale-110"
               loading="eager"
               fetchpriority="high"
             />
           </div>
           {/* Cinematic left-to-right overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/20" />
-          {/* Subtle warm bronze glow upper-left */}
-          <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-copper/35 rounded-full blur-[120px]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
           {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/90 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/90 to-transparent" />
 
           {/* Mobile content */}
-          <div className="relative z-10 flex flex-col items-center min-h-screen px-6 pt-28 pb-8 text-center">
-            <div className="animate-fade-up">
-              <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/25 rounded-full px-5 py-2.5 text-xs font-medium text-white shadow-lg shadow-black/20">
+          <div className="relative z-10 flex flex-col min-h-screen px-5 pt-44 pb-6 text-center">
+            {/* Availability badge */}
+            <div className="animate-fade-up inline-flex mx-auto">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/25 rounded-full px-5 py-2 text-sm font-medium text-white shadow-lg shadow-black/40">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                AVAILABLE 24/7 FOR EMERGENCIES
+                Available 24/7
               </div>
             </div>
 
-            <h1 className="mt-8 font-display font-extrabold text-white text-[2.75rem] leading-[1.05] tracking-tight animate-fade-up-delay-1 drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
-              Commercial{' '}
-              <span className="text-brand-gold">Grease Trap</span>{' '}
-              Cleaning NJ Restaurants Can Count On
-            </h1>
-
-            <p className="mt-6 text-base text-gray-200 leading-relaxed animate-fade-up-delay-2">
-              Licensed grease trap pumping, cleaning, maintenance, installation and emergency service throughout New Jersey.
-            </p>
-
-            <div className="mt-10 animate-fade-up-delay-3">
-              <Link
-                to="/quote"
-                className="group flex items-center justify-center gap-3 w-full text-white font-bold text-base px-8 py-4 rounded-2xl transition-all duration-300 active:translate-y-0 active:shadow-lg"
-                style={{
-                  minHeight: '56px',
-                  background: 'linear-gradient(135deg, #B97832 0%, #8C5523 50%, #6E3F1A 100%)',
-                  boxShadow: '0 10px 30px -10px rgba(140, 85, 35, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-                }}
-              >
-                <span>Get Free Quote</span>
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" />
-              </Link>
+            {/* Headline - stacked */}
+            <div className="mt-8 animate-fade-up-delay-1">
+              <h1 className="font-display font-extrabold text-white text-[3rem] leading-[1.1] tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
+                Commercial<br />
+                <span className="text-brand-gold">Grease Trap</span><br />
+                Cleaning
+              </h1>
             </div>
 
-            <div className="mt-4 animate-fade-up-delay-3">
+            {/* Trusted by text */}
+            <p className="mt-4 text-3xl font-bold text-white animate-fade-up-delay-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+              Trusted by Restaurants<br />Across <span className="text-brand-gold">New Jersey</span>
+            </p>
+
+            {/* Description */}
+            <p className="mt-3 text-base text-gray-300 leading-loose animate-fade-up-delay-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+              Licensed pumping, cleaning,<br />maintenance & emergency service<br />across New Jersey.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="mt-6 space-y-3 animate-fade-up-delay-3">
+              <Link
+                to="/quote"
+                className="flex items-center justify-center gap-2 w-full text-white font-bold text-base px-6 py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-brand-copper/60"
+                style={{
+                  background: 'linear-gradient(135deg, #B97832 0%, #8C5523 50%, #6E3F1A 100%)',
+                  boxShadow: '0 8px 25px -5px rgba(140, 85, 35, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                }}
+              >
+                Get Free Quote
+                <ArrowRight className="w-5 h-5" />
+              </Link>
               <a
                 href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
-                className="flex items-center justify-center gap-2 w-full bg-white/10 backdrop-blur-md border-2 border-white/30 hover:bg-white/20 text-white font-bold text-base px-8 py-4 rounded-2xl transition-all"
-                style={{ minHeight: '56px' }}
+                className="flex items-center justify-center gap-2 w-full bg-white/10 backdrop-blur-md border-2 border-white/50 text-white font-bold text-base px-6 py-4 rounded-xl transition-all hover:border-brand-gold/80"
               >
-                <Phone className="w-5 h-5" />
-                Call {PHONE}
+                <Phone className="w-5 h-5 text-brand-gold" />
+                Call Now
               </a>
             </div>
 
-            <div className="flex-1 min-h-[48px]" />
+            {/* Checkmarks */}
+            <div className="mt-6 grid grid-cols-2 gap-2 text-base text-white animate-fade-up-delay-4">
+              <span className="flex items-center gap-2"><Check className="w-5 h-5 text-brand-gold" /> Licensed</span>
+              <span className="flex items-center gap-2"><Check className="w-5 h-5 text-brand-gold" /> DEP Compliant</span>
+              <span className="flex items-center gap-2"><Check className="w-5 h-5 text-brand-gold" /> 24/7 Emergency</span>
+              <span className="flex items-center gap-2"><Check className="w-5 h-5 text-brand-gold" /> Same-Day Service</span>
+            </div>
 
-            <div className="animate-fade-up-delay-4 flex flex-col items-center text-center gap-3">
-              <div className="flex text-brand-gold">
+            {/* Stars with rating */}
+            <div className="mt-6 mb-8 animate-fade-up-delay-4">
+              <div className="flex items-center justify-center gap-2 text-brand-gold">
                 <Star className="w-5 h-5 fill-current" />
                 <Star className="w-5 h-5 fill-current" />
                 <Star className="w-5 h-5 fill-current" />
                 <Star className="w-5 h-5 fill-current" />
                 <Star className="w-5 h-5 fill-current" />
+                <span className="text-white font-bold">5.0 Rating</span>
               </div>
-              <span className="text-sm font-semibold text-white">Trusted by restaurants throughout New Jersey</span>
-              <div className="text-xs text-gray-300 flex flex-wrap gap-x-3 gap-y-1 justify-center">
-                <span>NJDEP Licensed</span><span>•</span>
-                <span>Fully Insured</span><span>•</span>
-                <span>Emergency Response</span>
-              </div>
+              <p className="mt-1 text-base text-white font-medium text-center">500+ Restaurants Served</p>
             </div>
           </div>
         </div>
