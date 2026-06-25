@@ -79,7 +79,9 @@ export default function App() {
             <DashboardLayout />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route index element={<Staff />} />
+      </Route>
       <Route
         path="/vehicles"
         element={
@@ -87,7 +89,9 @@ export default function App() {
             <DashboardLayout />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route index element={<Vehicles />} />
+      </Route>
       <Route
         path="/invoices"
         element={
@@ -95,7 +99,9 @@ export default function App() {
             <DashboardLayout />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route index element={<Invoices />} />
+      </Route>
       <Route
         path="/live-ops"
         element={
@@ -103,7 +109,9 @@ export default function App() {
             <DashboardLayout />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route index element={<LiveOps />} />
+      </Route>
       <Route
         path="/settings"
         element={
@@ -111,7 +119,9 @@ export default function App() {
             <DashboardLayout />
           </ProtectedRoute>
         }
-      />
+      >
+        <Route index element={<Settings />} />
+      </Route>
 
       {/* Public marketing site */}
       <Route

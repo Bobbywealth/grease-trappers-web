@@ -134,13 +134,13 @@ export default function CustomerDetail() {
           {customer.phone && (
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-gray-400" />
-              <a href={`tel:${customer.phone}`} className="hover:text-brand-copper">{customer.phone}</a>
+              <a href={`tel:${customer.phone}`} className="hover:text-accent">{customer.phone}</a>
             </div>
           )}
           {customer.email && (
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-gray-400" />
-              <a href={`mailto:${customer.email}`} className="hover:text-brand-copper truncate">{customer.email}</a>
+              <a href={`mailto:${customer.email}`} className="hover:text-accent truncate">{customer.email}</a>
             </div>
           )}
           <div className="flex items-center gap-2">
@@ -179,7 +179,7 @@ export default function CustomerDetail() {
           <div className="divide-y divide-gray-100">
             {customer.traps.map((t) => (
               <div key={t.id} className="p-4 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-brand-cream text-brand-copper flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-accent-light text-accent flex items-center justify-center flex-shrink-0">
                   <Droplet className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -190,7 +190,7 @@ export default function CustomerDetail() {
                     {t.last_pumped_at && <span>Last: {t.last_pumped_at}</span>}
                   </div>
                 </div>
-                <button onClick={() => openEditTrap(t)} className="p-1.5 text-gray-400 hover:text-brand-copper hover:bg-brand-cream rounded">
+                <button onClick={() => openEditTrap(t)} className="p-1.5 text-gray-400 hover:text-accent hover:bg-accent-light rounded">
                   <Edit2 className="w-4 h-4" />
                 </button>
                 <button onClick={() => setDeleteTrapId(t.id)} className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded">
@@ -209,7 +209,7 @@ export default function CustomerDetail() {
             <Briefcase className="w-4 h-4 text-gray-400" />
             Recent Jobs
           </h2>
-          <Link to="/jobs" className="text-sm text-brand-copper hover:underline">View all jobs</Link>
+          <Link to="/jobs" className="text-sm text-accent hover:underline">View all jobs</Link>
         </div>
         {!customer.recent_jobs || customer.recent_jobs.length === 0 ? (
           <div className="text-center py-8 text-gray-400 text-sm">No jobs yet.</div>

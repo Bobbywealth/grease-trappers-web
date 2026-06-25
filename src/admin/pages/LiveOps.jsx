@@ -58,7 +58,7 @@ export default function LiveOps() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {active.map(emp => (
               <div key={emp.user_id} className="flex items-center gap-3 p-3 bg-green-50 border border-green-200 rounded-lg">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-copper to-brand-bronze flex items-center justify-center text-white font-semibold flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-blue-600 flex items-center justify-center text-white font-semibold flex-shrink-0">
                   {emp.name?.[0]?.toUpperCase() || '?'}
                 </div>
                 <div className="flex-1 min-w-0">

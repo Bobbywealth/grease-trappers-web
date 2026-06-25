@@ -132,7 +132,7 @@ export default function Jobs() {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-3 py-1.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-copper"
+          className="px-3 py-1.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-accent"
         >
           {STATUSES.map(s => <option key={s.value} value={s.value}>{s.label}</option>)}
         </select>
@@ -168,7 +168,7 @@ export default function Jobs() {
                 {jobs.map(j => (
                   <tr key={j.id} className="hover:bg-gray-50">
                     <td className="px-4 py-3">
-                      <Link to={`/jobs/${j.id}`} className="font-medium text-gray-900 hover:text-brand-copper">
+                      <Link to={`/jobs/${j.id}`} className="font-medium text-gray-900 hover:text-accent">
                         {j.customer_name || `Customer #${j.customer_id}`}
                       </Link>
                       {j.customer_address && (

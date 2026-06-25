@@ -5,21 +5,47 @@ export default {
     extend: {
       colors: {
         brand: {
-          // Brief-specified palette
-          copper: '#8C5523',     // primary bronze
-          sienna: '#B97832',     // bronze
-          bronze: '#B97832',     // alias
-          gold: '#D9A441',       // gold accent
-          champagne: '#F6D58A',  // light gold
-          cream: '#F7F2E8',      // background tint
-          black: '#0D0D0D',      // brief-specified background
+          // Brief-specified palette (orange — only for the logo + marketing site)
+          copper: '#8C5523',
+          sienna: '#B97832',
+          bronze: '#B97832',
+          gold: '#D9A441',
+          champagne: '#F6D58A',
+          cream: '#F7F2E8',
+          black: '#0D0D0D',
           dark: '#0D0D0D',
-          pink: '#E84DB2',       // legacy (unused)
+          pink: '#E84DB2',
         },
+        // Manager Console — navy/blue SaaS palette
+        navy: {
+          900: '#0F172A',
+          800: '#16213A',
+          700: '#1E293B',
+          600: '#334155',
+        },
+        accent: {
+          DEFAULT: '#2563EB',
+          hover: '#1D4ED8',
+          light: '#EFF6FF',
+          ring: '#BFDBFE',
+        },
+        ink: {
+          DEFAULT: '#0F172A',
+          muted: '#64748B',
+          subtle: '#94A3B8',
+        },
+        canvas: {
+          DEFAULT: '#F8FAFC',
+          surface: '#FFFFFF',
+          border: '#E5E7EB',
+        },
+        success: '#22C55E',
+        warning: '#F59E0B',
+        danger: '#EF4444',
       },
       fontFamily: {
         display: ['Manrope', 'Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
-        sans: ['Manrope', 'Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'Manrope', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         zoomHero: {

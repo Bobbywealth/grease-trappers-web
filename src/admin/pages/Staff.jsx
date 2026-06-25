@@ -111,7 +111,7 @@ export default function Staff() {
           {users.map(u => (
             <div key={u.id} className="card p-5">
               <div className="flex items-start gap-3 mb-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-brand-copper to-brand-bronze flex items-center justify-center text-white font-semibold flex-shrink-0">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-blue-600 flex items-center justify-center text-white font-semibold flex-shrink-0">
                   {u.name?.[0]?.toUpperCase() || 'U'}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -120,7 +120,7 @@ export default function Staff() {
                 </div>
                 <button
                   onClick={() => openEdit(u)}
-                  className="p-1.5 text-gray-400 hover:text-brand-copper hover:bg-brand-cream rounded"
+                  className="p-1.5 text-gray-400 hover:text-accent hover:bg-accent-light rounded"
                 >
                   <Edit2 className="w-4 h-4" />
                 </button>
@@ -135,7 +135,7 @@ export default function Staff() {
                 {u.phone && (
                   <div className="flex items-center gap-2 text-gray-600">
                     <Phone className="w-3 h-3" />
-                    <a href={`tel:${u.phone}`} className="hover:text-brand-copper">{u.phone}</a>
+                    <a href={`tel:${u.phone}`} className="hover:text-accent">{u.phone}</a>
                   </div>
                 )}
                 {u.last_login_at && (

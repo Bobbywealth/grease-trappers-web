@@ -114,7 +114,7 @@ export default function Invoices() {
         </div>
         <div className="card p-5">
           <div className="text-sm text-gray-500 mb-1">Total Invoices</div>
-          <div className="text-2xl font-bold text-brand-copper">{invoices.length}</div>
+          <div className="text-2xl font-bold text-accent">{invoices.length}</div>
         </div>
       </div>
 
