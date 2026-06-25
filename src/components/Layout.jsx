@@ -71,10 +71,10 @@ export default function Layout({ children }) {
       {scrolled && (
         <a
           href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-gradient-to-r from-brand-copper to-brand-sienna text-white px-5 py-4 rounded-full shadow-2xl shadow-brand-copper/50 hover:scale-105 transition-transform animate-fade-up"
-          style={{ boxShadow: '0 10px 30px -5px rgba(185, 120, 50, 0.5)' }}
+          className="fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-gradient-to-r from-brand-copper to-brand-sienna text-white px-4 py-3 rounded-full shadow-2xl shadow-brand-copper/50 hover:scale-105 transition-transform animate-fade-up"
+          style={{ boxShadow: '0 8px 25px -5px rgba(185, 120, 50, 0.5)' }}
         >
-          <Phone className="w-6 h-6" />
+          <Phone className="w-5 h-5" />
           <span className="font-bold hidden sm:inline">{PHONE}</span>
         </a>
       )}

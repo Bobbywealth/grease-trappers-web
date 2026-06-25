@@ -271,12 +271,12 @@ export default function Home() {
       <section className="pt-0 pb-20 bg-[#0D0D0D] text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <Reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-            <div className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-3 font-semibold">What we do</div>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
-              Full-Service Grease Trap Management
+            <div className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-3 font-semibold">Our Services</div>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
+              Everything Your Restaurant<br className="hidden md:block" /> Needs to Stay Compliant
             </h2>
             <p className="text-lg text-gray-400">
-              From routine pumping to emergency unblocks, we keep your kitchen compliant and your drains flowing.
+              From routine pumping and grease collection to emergency service and compliance support, we keep your restaurant operating safely, legally, and without interruption.
             </p>
           </Reveal>
           <RevealGroup className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
@@ -350,22 +350,36 @@ export default function Home() {
       {/* ============================================================
           HOW IT WORKS
           ============================================================ */}
-      <section className="py-20 sm:py-24 bg-[#111111] text-white">
+      <section className="py-16 sm:py-20 bg-[#111111] text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <Reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+          <Reveal className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
             <div className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-3 font-semibold">How it works</div>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
               Three steps. That's it.
             </h2>
             <p className="text-lg text-gray-400">
-              From quote to clean trap. Most jobs scheduled within 48 hours.
+              Request a quote today. Most commercial jobs are quoted within 2 business hours and scheduled within 48 hours.
             </p>
           </Reveal>
-          <RevealGroup className="grid sm:grid-cols-3 gap-8 sm:gap-10">
-            <Item><Step n={1} title="Tell us about your trap" desc="Submit a quote request or call us. We'll need the trap size, location, and current service schedule." /></Item>
-            <Item><Step n={2} title="Get a fixed quote" desc="Flat-rate pricing based on trap size and frequency. No surprise fees. Quotes in under 2 hours during business hours." /></Item>
-            <Item><Step n={3} title="We handle everything" desc="We arrive on schedule, do the work, leave manifests for your files. Pay online or net-30 for businesses." /></Item>
+          <RevealGroup className="relative">
+            {/* Connecting line */}
+            <div className="hidden sm:block absolute top-10 left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-transparent via-brand-copper/50 to-transparent" />
+            <div className="grid sm:grid-cols-3 gap-8 sm:gap-10">
+              <Item><Step n={1} icon={Phone} title="Request a Quote" desc="Tell us your trap size, location, and current service schedule. Takes 2 minutes online or over the phone." timing="2 minutes" /></Item>
+              <Item><Step n={2} icon={FileCheck} title="Receive Your Quote" desc="Flat-rate pricing based on trap size and service frequency. No surprise fees or hidden charges." timing="Within 2 hours" /></Item>
+              <Item><Step n={3} icon={Truck} title="We Handle Everything" desc="We arrive on schedule, complete the work, and leave compliance manifests for your records." timing="Usually within 48 hours" /></Item>
+            </div>
           </RevealGroup>
+          <Reveal className="mt-12 text-center">
+            <p className="text-sm text-gray-500 mb-4">Ready to get started?</p>
+            <Link
+              to="/quote"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-copper to-brand-sienna text-white px-6 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity"
+            >
+              Get Your Free Quote
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
@@ -454,26 +468,26 @@ function Stat({ icon, value, label }) {
 // ============================================================
 function FeatureCard({ icon: Icon, accent, title, desc, features = [] }) {
   return (
-    <div className="group relative h-full flex flex-col p-7 sm:p-8 bg-black border-2 border-brand-copper/50 rounded-2xl hover:border-brand-copper hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+    <div className="group relative h-full flex flex-col p-7 sm:p-8 bg-black border-2 border-brand-copper/50 rounded-2xl hover:border-brand-gold hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-copper/20 transition-all duration-300 overflow-hidden">
       {/* Top accent bar */}
       <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${accent}`} />
 
       {/* Icon */}
-      <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${accent} flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-all duration-300`}>
+      <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${accent} flex items-center justify-center mb-5 shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300`}>
         <Icon className="w-8 h-8 text-white" strokeWidth={2} />
       </div>
 
       {/* Title + desc */}
-      <h3 className="relative font-bold text-2xl text-white mb-3">
+      <h3 className="relative font-extrabold text-2xl text-white mb-2">
         {title}
       </h3>
-      <p className="relative text-base text-gray-400 leading-relaxed mb-6">
+      <p className="relative text-base text-gray-400 leading-relaxed mb-6 flex-grow">
         {desc}
       </p>
 
       {/* Feature pills */}
       {features.length > 0 && (
-        <ul className="relative space-y-3">
+        <ul className="relative space-y-3 mb-6">
           {features.map((f, i) => (
             <li key={i} className="flex items-center gap-3 text-sm text-gray-300">
               <Check className={`w-4 h-4 bg-gradient-to-br ${accent} text-white rounded-full p-0.5 flex-shrink-0`} strokeWidth={3} />
@@ -482,6 +496,17 @@ function FeatureCard({ icon: Icon, accent, title, desc, features = [] }) {
           ))}
         </ul>
       )}
+
+      {/* Learn More */}
+      <div className="relative">
+        <Link
+          to="/services"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-gold hover:text-brand-champagne transition-colors duration-200 group/link"
+        >
+          View Service
+          <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-200" />
+        </Link>
+      </div>
     </div>
   );
 }
@@ -489,14 +514,26 @@ function FeatureCard({ icon: Icon, accent, title, desc, features = [] }) {
 // ============================================================
 // STEP — how it works
 // ============================================================
-function Step({ n, title, desc }) {
+function Step({ n, icon: Icon, title, desc, timing }) {
   return (
     <div className="relative text-center sm:text-left">
-      <div className="text-7xl sm:text-8xl font-display font-extrabold text-brand-copper/30 leading-none mb-2">
-        {String(n).padStart(2, '0')}
+      <div className="flex flex-col sm:flex-row sm:items-start items-center gap-4 sm:gap-6">
+        <div className="relative flex-shrink-0">
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-copper to-brand-sienna flex items-center justify-center shadow-lg shadow-brand-copper/30">
+            <Icon className="w-9 h-9 text-white" strokeWidth={1.5} />
+          </div>
+          <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br from-brand-gold to-brand-champagne flex items-center justify-center font-bold text-black text-sm shadow-lg">
+            {String(n).padStart(2, '0')}
+          </div>
+        </div>
+        <div className="flex-1 text-center sm:text-left">
+          <h3 className="font-bold text-lg text-white mb-1">{title}</h3>
+          <p className="text-sm text-gray-400 leading-relaxed">{desc}</p>
+          {timing && (
+            <span className="inline-block mt-2 text-xs text-brand-gold font-medium">{timing}</span>
+          )}
+        </div>
       </div>
-      <h3 className="font-bold text-lg text-white mb-3">{title}</h3>
-      <p className="text-sm text-gray-400 leading-relaxed">{desc}</p>
     </div>
   );
 }

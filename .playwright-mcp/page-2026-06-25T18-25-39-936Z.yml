@@ -1,0 +1,23 @@
+- generic [ref=e6]:
+  - generic [ref=e7]:
+    - img "The Grease Trappers, LLC" [ref=e11]
+    - heading "The Grease Trappers" [level=1] [ref=e12]
+    - paragraph [ref=e13]:
+      - img [ref=e14]
+      - text: Manager Console
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]: Email
+        - generic [ref=e19]:
+          - img [ref=e20]
+          - textbox "you@greasetrapers.com" [ref=e23]
+      - generic [ref=e24]:
+        - generic [ref=e25]: Password
+        - generic [ref=e26]:
+          - img [ref=e27]
+          - textbox "••••••••" [ref=e30]
+          - button [ref=e31] [cursor=pointer]:
+            - img [ref=e32]
+      - button "Sign In" [ref=e35] [cursor=pointer]
+    - generic [ref=e36]: Forgot password? Contact your administrator.
+  - paragraph [ref=e37]: © 2026 The Grease Trappers. All rights reserved.
