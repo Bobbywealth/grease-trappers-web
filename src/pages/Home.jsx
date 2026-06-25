@@ -21,13 +21,24 @@ export default function Home() {
           - Mobile (<md): full-bleed background image, stacked layout
           ============================================================ */}
       <section className="relative w-full overflow-hidden bg-black">
-        {/* DESKTOP HERO: split layout — bg image left, copy + image card right */}
+        {/* DESKTOP HERO: full-bleed image background, copy overlaid on the left */}
         <div className="hidden md:block relative min-h-[700px]">
-          <div className="grid grid-cols-2 min-h-[700px]">
-            {/* Left column — copy */}
-            <div className="relative bg-gradient-to-br from-gray-900 via-gray-900 to-black flex items-center">
-              {/* Subtle bronze glow upper-left */}
-              <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-copper/30 rounded-full blur-[120px] pointer-events-none" />
+          {/* Full-width background image */}
+          <img
+            src={HERO_IMAGE}
+            alt="The Grease Trappers crew servicing a NJ restaurant grease trap"
+            className="absolute inset-0 w-full h-full object-cover animate-zoom-hero"
+            loading="eager"
+            fetchpriority="high"
+          />
+          {/* Cinematic left-to-right overlay for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/20" />
+          {/* Subtle warm bronze glow upper-left */}
+          <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-copper/40 rounded-full blur-[120px] pointer-events-none" />
+
+          <div className="relative z-10 min-h-[700px] grid grid-cols-2">
+            {/* Left column — copy over the image */}
+            <div className="relative flex items-center">
               <div className="relative z-10 w-full px-10 lg:px-16 xl:px-20 py-20 max-w-2xl ml-auto">
                 <div className="animate-fade-up">
                   <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-xs sm:text-sm font-medium text-white">
