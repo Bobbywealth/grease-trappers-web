@@ -90,7 +90,7 @@ export default function Home() {
                   <span className="text-sm font-semibold">Same-Day Service</span>
                 </div>
                 <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 text-white">
-                  <Shield className="w-4 h-4 text-brand-gold" />
+                  <ShieldCheck className="w-4 h-4 text-brand-gold" />
                   <span className="text-sm font-semibold">Licensed & Insured</span>
                 </div>
                 <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 text-white">
