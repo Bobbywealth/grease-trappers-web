@@ -11,8 +11,18 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-brand-copper opacity-20 rounded-full blur-3xl" />
-        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-brand-gold opacity-15 rounded-full blur-3xl" />
+        {/* Background hero image with dark overlay */}
+        <div className="absolute inset-0 opacity-25">
+          <img
+            src="https://i.imgur.com/k3VWiow.jpeg"
+            alt=""
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/40" />
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-brand-copper opacity-30 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-brand-gold opacity-20 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 rounded-full px-4 py-1.5 text-xs font-medium mb-6">
@@ -55,11 +65,22 @@ export default function Home() {
 
           <div className="hidden md:block relative">
             <div className="absolute inset-0 bg-gradient-to-br from-brand-copper/30 to-brand-gold/20 rounded-3xl blur-2xl" />
-            <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 space-y-4">
-              <Stat icon={<Calendar className="w-6 h-6" />} label="Scheduled service" value="500+" unit="tanks maintained monthly" />
-              <Stat icon={<Clock className="w-6 h-6" />} label="Emergency response" value="< 2hr" unit="across all of NJ" />
-              <Stat icon={<Star className="w-6 h-6" />} label="Customer rating" value="4.9/5" unit="based on 200+ reviews" />
-              <Stat icon={<ShieldCheck className="w-6 h-6" />} label="Compliance" value="100%" unit="NJDEP documentation" />
+            <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+              <img
+                src="https://i.imgur.com/k3VWiow.jpeg"
+                alt="The Grease Trappers crew servicing a NJ restaurant grease trap"
+                className="w-full h-auto object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-brand-champagne font-semibold mb-2">
+                  <span className="w-2 h-2 rounded-full bg-brand-champagne animate-pulse" />
+                  On the job
+                </div>
+                <div className="text-2xl font-bold font-display mb-1">Servicing NJ's kitchens since 2008</div>
+                <div className="text-sm text-gray-300">Family-owned. NJDEP licensed. Fully insured.</div>
+              </div>
             </div>
           </div>
         </div>
