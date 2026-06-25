@@ -122,7 +122,7 @@ export default function Home() {
               <h1 className="mt-8 font-display font-extrabold text-white text-4xl lg:text-5xl xl:text-[3.5rem] leading-[1.05] tracking-tight animate-fade-up-delay-1">
                 Commercial{' '}
                 <span className="text-brand-gold">Grease Trap</span>{' '}
-                Cleaning That Restaurants Can Count On
+                Cleaning NJ Restaurants Can Count On
               </h1>
 
               <p className="mt-6 text-base lg:text-lg text-gray-200 max-w-[540px] leading-relaxed animate-fade-up-delay-2">
@@ -221,7 +221,7 @@ export default function Home() {
             <h1 className="mt-8 font-display font-extrabold text-white text-[2.75rem] leading-[1.05] tracking-tight animate-fade-up-delay-1">
               Commercial{' '}
               <span className="text-brand-gold">Grease Trap</span>{' '}
-              Cleaning That Restaurants Can Count On
+              Cleaning NJ Restaurants Can Count On
             </h1>
 
             <p className="mt-6 text-base text-gray-200 leading-relaxed animate-fade-up-delay-2">
