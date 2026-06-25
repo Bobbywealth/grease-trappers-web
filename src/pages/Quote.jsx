@@ -124,17 +124,17 @@ export default function Quote() {
 
             {/* Summary cards */}
             <div className="grid grid-cols-3 gap-3 mb-10">
-              <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-copper/50 transition-colors">
                 <Clock className="w-5 h-5 text-brand-gold mx-auto mb-2" />
                 <div className="text-xs text-gray-400">Response</div>
                 <div className="text-sm font-semibold text-white">2 hrs</div>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-copper/50 transition-colors">
                 <ShieldCheck className="w-5 h-5 text-brand-gold mx-auto mb-2" />
                 <div className="text-xs text-gray-400">Guarantee</div>
                 <div className="text-sm font-semibold text-white">Flat rate</div>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-copper/50 transition-colors">
                 <Zap className="w-5 h-5 text-brand-gold mx-auto mb-2" />
                 <div className="text-xs text-gray-400">Urgency</div>
                 <div className="text-sm font-semibold text-white">Same day</div>
@@ -180,11 +180,11 @@ export default function Quote() {
         ]}
       />
 
-      {/* HERO */}
+      {/* HERO with animated background */}
       <section className="relative bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white pt-20 md:pt-28 pb-32 md:pb-40 overflow-hidden">
         <div className="absolute inset-0 opacity-40">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-copper rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-gold rounded-full filter blur-3xl opacity-60"></div>
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-copper rounded-full filter blur-3xl animate-float-slow"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-gold rounded-full filter blur-3xl opacity-60 animate-pulse-glow"></div>
         </div>
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -194,7 +194,7 @@ export default function Quote() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/20 rounded-full px-4 py-2 mb-6"
           >
-            <Sparkles className="w-4 h-4 text-brand-gold" />
+            <Sparkles className="w-4 h-4 text-brand-gold animate-pulse" />
             <span className="text-xs font-semibold tracking-wider uppercase">Free Quote — No Obligation</span>
           </motion.div>
 

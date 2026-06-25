@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { PHONE } from '../config/brand';
 import SEO from '../components/SEO';
+import Reveal from '../components/Reveal';
 
 export default function Services() {
   const services = [
@@ -117,80 +118,100 @@ export default function Services() {
           'grease interceptor inspection',
         ]}
       />
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="text-xs uppercase tracking-wider text-brand-gold mb-3 font-semibold">
-              What we do
+
+      {/* Hero with animated background */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white py-20 overflow-hidden">
+        {/* Animated background glows */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-brand-copper/20 rounded-full blur-[120px] animate-float-slow" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-gold/10 rounded-full blur-[100px] animate-pulse-glow" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal variant="fade-up">
+            <div className="max-w-3xl">
+              <div className="text-xs uppercase tracking-wider text-brand-gold mb-3 font-semibold">
+                What we do
+              </div>
+              <h1 className="font-display text-4xl md:text-6xl font-bold mb-6">
+                Full-service grease trap
+                <span className="block bg-gradient-to-r from-brand-copper to-brand-champagne bg-clip-text text-transparent">
+                  management
+                </span>
+              </h1>
+              <p className="text-lg text-gray-300 max-w-2xl">
+                From one-time emergency pumping to fully managed multi-location
+                maintenance programs — we handle every aspect of grease trap and
+                FOG compliance for NJ commercial kitchens.
+              </p>
             </div>
-            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6">
-              Full-service grease trap
-              <span className="block bg-gradient-to-r from-brand-copper to-brand-champagne bg-clip-text text-transparent">
-                management
-              </span>
-            </h1>
-            <p className="text-lg text-gray-300 max-w-2xl">
-              From one-time emergency pumping to fully managed multi-location
-              maintenance programs — we handle every aspect of grease trap and
-              FOG compliance for NJ commercial kitchens.
-            </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Services grid with scroll animations */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-copper/5 rounded-full blur-[120px] pointer-events-none animate-pulse-glow" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6">
             {services.map((s, i) => (
-              <div key={i} className="group p-7 bg-white rounded-2xl border border-gray-200 hover:border-brand-copper hover:shadow-xl transition-all">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-copper to-brand-bronze text-white flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    {s.icon}
+              <Reveal key={i} variant="fade-up" delay={(i % 2) * 100}>
+                <div className="group p-7 bg-white rounded-2xl border border-gray-200 hover:border-brand-copper hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-copper to-brand-bronze text-white flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                      {s.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-xl text-gray-900 group-hover:text-brand-copper transition-colors">{s.title}</h3>
+                      <p className="text-sm text-gray-500 mt-0.5">{s.short}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-xl text-gray-900">{s.title}</h3>
-                    <p className="text-sm text-gray-500 mt-0.5">{s.short}</p>
-                  </div>
+                  <ul className="space-y-2 mt-4">
+                    {s.items.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-gray-700">
+                        <Check className="w-4 h-4 text-brand-copper flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-2 mt-4">
-                  {s.items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-gray-700">
-                      <Check className="w-4 h-4 text-brand-copper flex-shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Not sure what you need?
-          </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Send us a photo of your trap or interceptor and we'll tell you
-            exactly what service makes sense. No obligation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              to="/quote"
-              className="inline-flex items-center justify-center gap-2 bg-brand-copper text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-brand-sienna transition-colors"
-            >
-              Get a Free Quote
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <a
-              href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
-              className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 border border-gray-300 px-6 py-3.5 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-            >
-              Call {PHONE}
-            </a>
-          </div>
+      {/* CTA with animated background */}
+      <section className="py-20 bg-gradient-to-br from-brand-copper to-brand-sienna relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold/30 rounded-full blur-3xl animate-float-slow" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-champagne/20 rounded-full blur-3xl animate-float" />
         </div>
+        <Reveal variant="scale-in">
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+              Not sure what you need?
+            </h2>
+            <p className="text-lg text-white/90 mb-8">
+              Send us a photo of your trap or interceptor and we'll tell you
+              exactly what service makes sense. No obligation.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                to="/quote"
+                className="inline-flex items-center justify-center gap-2 bg-white text-brand-copper px-6 py-3.5 rounded-lg font-semibold hover:bg-gray-100 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                Get a Free Quote
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <a
+                href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
+                className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur border border-white/30 text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-white/20 transition-all hover:-translate-y-0.5"
+              >
+                Call {PHONE}
+              </a>
+            </div>
+          </div>
+        </Reveal>
       </section>
     </>
   );

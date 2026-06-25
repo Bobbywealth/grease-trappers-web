@@ -1,0 +1,237 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "The Grease Trappers, LLC" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "The Grease Trappers, LLC" [ref=e8]
+      - navigation [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - text: Home
+        - link "Services" [ref=e11] [cursor=pointer]:
+          - /url: /services
+          - text: Services
+        - link "About" [ref=e12] [cursor=pointer]:
+          - /url: /about
+          - text: About
+        - link "Free Quote" [ref=e13] [cursor=pointer]:
+          - /url: /quote
+          - text: Free Quote
+        - link "(888) 982-1989" [ref=e14] [cursor=pointer]:
+          - /url: tel:8889821989
+          - img [ref=e15]
+          - text: (888) 982-1989
+        - link "Login" [ref=e17] [cursor=pointer]:
+          - /url: https://grease-trappers-admin-v2.onrender.com/login
+          - img [ref=e18]
+          - text: Login
+  - main [ref=e22]:
+    - generic [ref=e25]:
+      - generic [ref=e26]: What we do
+      - heading "Full-service grease trap management" [level=1] [ref=e27]:
+        - text: Full-service grease trap
+        - generic [ref=e28]: management
+      - paragraph [ref=e29]: From one-time emergency pumping to fully managed multi-location maintenance programs — we handle every aspect of grease trap and FOG compliance for NJ commercial kitchens.
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - img [ref=e36]
+          - generic [ref=e39]:
+            - heading "Grease Trap Pumping & Cleaning" [level=3] [ref=e40]
+            - paragraph [ref=e41]: Full pump-out of indoor & outdoor traps
+        - list [ref=e42]:
+          - listitem [ref=e43]:
+            - img [ref=e44]
+            - generic [ref=e46]: Complete waste removal — no skim jobs
+          - listitem [ref=e47]:
+            - img [ref=e48]
+            - generic [ref=e50]: Trap wall scraping and rinse
+          - listitem [ref=e51]:
+            - img [ref=e52]
+            - generic [ref=e54]: Baffle inspection and cleaning
+          - listitem [ref=e55]:
+            - img [ref=e56]
+            - generic [ref=e58]: Inlet/outlet flow verification
+          - listitem [ref=e59]:
+            - img [ref=e60]
+            - generic [ref=e62]: Manifest documentation on completion
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - img [ref=e66]
+          - generic [ref=e71]:
+            - heading "Used Cooking Oil & Yellow Grease Pickup" [level=3] [ref=e72]
+            - paragraph [ref=e73]: Buy-back or haul-away for your grease bins
+        - list [ref=e74]:
+          - listitem [ref=e75]:
+            - img [ref=e76]
+            - generic [ref=e78]: Sealed transfer, zero mess
+          - listitem [ref=e79]:
+            - img [ref=e80]
+            - generic [ref=e82]: Weighed and recorded for your records
+          - listitem [ref=e83]:
+            - img [ref=e84]
+            - generic [ref=e86]: Buy-back credit available for qualifying volumes
+          - listitem [ref=e87]:
+            - img [ref=e88]
+            - generic [ref=e90]: Compatible with all standard grease bins
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - img [ref=e94]
+          - generic [ref=e98]:
+            - heading "NJDEP Compliance & Manifest Filing" [level=3] [ref=e99]
+            - paragraph [ref=e100]: All paperwork handled for your inspections
+        - list [ref=e101]:
+          - listitem [ref=e102]:
+            - img [ref=e103]
+            - generic [ref=e105]: NJDEP waste manifest documentation
+          - listitem [ref=e106]:
+            - img [ref=e107]
+            - generic [ref=e109]: Interceptor inspection reports
+          - listitem [ref=e110]:
+            - img [ref=e111]
+            - generic [ref=e113]: Municipal FOG program compliance
+          - listitem [ref=e114]:
+            - img [ref=e115]
+            - generic [ref=e117]: Annual interceptor certification
+          - listitem [ref=e118]:
+            - img [ref=e119]
+            - generic [ref=e121]: Records portal — pull docs anytime
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - img [ref=e125]
+          - generic [ref=e128]:
+            - heading "Drain Line Jetting" [level=3] [ref=e129]
+            - paragraph [ref=e130]: High-pressure hydro-jetting for FOG-clogged lines
+        - list [ref=e131]:
+          - listitem [ref=e132]:
+            - img [ref=e133]
+            - generic [ref=e135]: Up to 4,000 PSI hydro-jetting
+          - listitem [ref=e136]:
+            - img [ref=e137]
+            - generic [ref=e139]: Clears grease, sludge, and root intrusion
+          - listitem [ref=e140]:
+            - img [ref=e141]
+            - generic [ref=e143]: Camera inspection before/after
+          - listitem [ref=e144]:
+            - img [ref=e145]
+            - generic [ref=e147]: Restores full flow to drain laterals
+      - generic [ref=e148]:
+        - generic [ref=e149]:
+          - img [ref=e151]
+          - generic [ref=e154]:
+            - heading "24/7 Emergency Response" [level=3] [ref=e155]
+            - paragraph [ref=e156]: Backups, overflows, after-hours emergencies
+        - list [ref=e157]:
+          - listitem [ref=e158]:
+            - img [ref=e159]
+            - generic [ref=e161]: Real human dispatch — no phone trees
+          - listitem [ref=e162]:
+            - img [ref=e163]
+            - generic [ref=e165]: Average response under 2 hours statewide
+          - listitem [ref=e166]:
+            - img [ref=e167]
+            - generic [ref=e169]: Emergency pump-out, line clearing
+          - listitem [ref=e170]:
+            - img [ref=e171]
+            - generic [ref=e173]: Available nights, weekends, holidays
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - img [ref=e177]
+          - generic [ref=e179]:
+            - heading "New Trap Installation & Replacement" [level=3] [ref=e180]
+            - paragraph [ref=e181]: Full plumbing for new or failing systems
+        - list [ref=e182]:
+          - listitem [ref=e183]:
+            - img [ref=e184]
+            - generic [ref=e186]: Site survey and sizing
+          - listitem [ref=e187]:
+            - img [ref=e188]
+            - generic [ref=e190]: NJ plumbing code compliant installation
+          - listitem [ref=e191]:
+            - img [ref=e192]
+            - generic [ref=e194]: Removal and disposal of old units
+          - listitem [ref=e195]:
+            - img [ref=e196]
+            - generic [ref=e198]: Coordination with your GC or plumber
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - img [ref=e202]
+          - generic [ref=e205]:
+            - heading "Scheduled Maintenance Plans" [level=3] [ref=e206]
+            - paragraph [ref=e207]: Monthly, quarterly, or custom schedules
+        - list [ref=e208]:
+          - listitem [ref=e209]:
+            - img [ref=e210]
+            - generic [ref=e212]: Predictable flat-rate pricing
+          - listitem [ref=e213]:
+            - img [ref=e214]
+            - generic [ref=e216]: Priority scheduling for emergencies
+          - listitem [ref=e217]:
+            - img [ref=e218]
+            - generic [ref=e220]: No missed cleanings — we track for you
+          - listitem [ref=e221]:
+            - img [ref=e222]
+            - generic [ref=e224]: Locked-in pricing for 12 months
+      - generic [ref=e225]:
+        - generic [ref=e226]:
+          - img [ref=e228]
+          - generic [ref=e232]:
+            - heading "Interceptor Inspections" [level=3] [ref=e233]
+            - paragraph [ref=e234]: Pre-purchase, regulatory, and audit inspections
+        - list [ref=e235]:
+          - listitem [ref=e236]:
+            - img [ref=e237]
+            - generic [ref=e239]: Detailed photo + video report
+          - listitem [ref=e240]:
+            - img [ref=e241]
+            - generic [ref=e243]: Capacity & condition assessment
+          - listitem [ref=e244]:
+            - img [ref=e245]
+            - generic [ref=e247]: Compliance gap analysis
+          - listitem [ref=e248]:
+            - img [ref=e249]
+            - generic [ref=e251]: Recommendations for repairs or replacement
+    - generic [ref=e253]:
+      - heading "Not sure what you need?" [level=2] [ref=e254]
+      - paragraph [ref=e255]: Send us a photo of your trap or interceptor and we'll tell you exactly what service makes sense. No obligation.
+      - generic [ref=e256]:
+        - link "Get a Free Quote" [ref=e257] [cursor=pointer]:
+          - /url: /quote
+          - text: Get a Free Quote
+          - img [ref=e258]
+        - link "Call (888) 982-1989" [ref=e260] [cursor=pointer]:
+          - /url: tel:8889821989
+  - contentinfo [ref=e261]:
+    - generic [ref=e262]:
+      - generic [ref=e263]:
+        - img "The Grease Trappers, LLC" [ref=e265]
+        - paragraph [ref=e266]: New Jersey's most trusted grease trap cleaning and pumping service. Restaurant-grade FOG compliance for commercial kitchens.
+      - generic [ref=e267]:
+        - heading "Company" [level=4] [ref=e268]
+        - list [ref=e269]:
+          - listitem [ref=e270]:
+            - link "Home" [ref=e271] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e272]:
+            - link "Services" [ref=e273] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=e274]:
+            - link "About" [ref=e275] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e276]:
+            - link "Free Quote" [ref=e277] [cursor=pointer]:
+              - /url: /quote
+      - generic [ref=e278]:
+        - heading "Contact" [level=4] [ref=e279]
+        - list [ref=e280]:
+          - listitem [ref=e281]:
+            - link "(888) 982-1989" [ref=e282] [cursor=pointer]:
+              - /url: tel:8889821989
+          - listitem [ref=e283]:
+            - link "service@greasetrapers.com" [ref=e284] [cursor=pointer]:
+              - /url: mailto:service@greasetrapers.com
+          - listitem [ref=e285]: 24/7 Emergency Service
+          - listitem [ref=e286]: NJDEP Licensed & Insured
+    - generic [ref=e288]:
+      - generic [ref=e289]: © 2026 The Grease Trappers, LLC. All rights reserved.
+      - generic [ref=e290]: "NJDEP Waste Hauler #NJ-WH-XXXXX · Fully Insured"

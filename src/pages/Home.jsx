@@ -103,36 +103,34 @@ export default function Home() {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                'linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 75%)',
+                'linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.05) 70%, rgba(0,0,0,0) 85%)',
             }}
           />
           {/* Subtle warm bronze glow upper-left */}
           <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-copper/40 rounded-full blur-[120px] pointer-events-none" />
 
-          {/* Content sits directly over the image (no left/right grid columns) */}
-          <div className="relative z-10 max-w-7xl mx-auto px-10 lg:px-16 xl:px-20 py-20">
-            <div className="max-w-2xl">
-              <div className="animate-fade-up">
-                <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-xs sm:text-sm font-medium text-white">
-                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                  AVAILABLE 24/7 FOR EMERGENCIES
-                </div>
+          {/* Content sits directly over the image, aligned to bottom, centered */}
+          <div className="relative z-10 max-w-7xl mx-auto px-10 lg:px-16 xl:px-20 pb-16 flex flex-col justify-end min-h-[700px]">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="animate-fade-up inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-xs sm:text-sm font-medium text-white">
+                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                AVAILABLE 24/7 FOR EMERGENCIES
               </div>
 
-              <h1 className="mt-8 font-display font-extrabold text-white text-4xl lg:text-5xl xl:text-[3.5rem] leading-[1.05] tracking-tight animate-fade-up-delay-1">
+              <h1 className="mt-8 font-display font-extrabold text-white text-4xl lg:text-5xl xl:text-[3.5rem] leading-[1.05] tracking-tight animate-fade-up-delay-1 drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
                 Commercial{' '}
                 <span className="text-brand-gold">Grease Trap</span>{' '}
                 Cleaning NJ Restaurants Can Count On
               </h1>
 
-              <p className="mt-6 text-base lg:text-lg text-gray-200 max-w-[540px] leading-relaxed animate-fade-up-delay-2">
+              <p className="mt-6 text-base lg:text-lg text-gray-200 leading-relaxed animate-fade-up-delay-2">
                 Licensed grease trap pumping, cleaning, maintenance and emergency service for restaurants throughout New Jersey.
               </p>
 
-              <div className="mt-8 flex flex-row gap-3 animate-fade-up-delay-3">
+              <div className="mt-8 flex flex-row gap-3 justify-center animate-fade-up-delay-3">
                 <Link
                   to="/quote"
-                  className="group inline-flex items-center gap-3 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-copper/50"
+                  className="group relative inline-flex items-center gap-3 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-copper/50 animate-bounce-soft"
                   style={{
                     background: 'linear-gradient(135deg, #B97832 0%, #8C5523 50%, #6E3F1A 100%)',
                     boxShadow: '0 10px 30px -10px rgba(140, 85, 35, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
@@ -143,48 +141,11 @@ export default function Home() {
                 </Link>
                 <a
                   href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
-                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border-2 border-white/30 hover:bg-white/20 text-white font-bold text-base px-7 py-4 rounded-xl transition-all hover:-translate-y-0.5"
+                  className="relative inline-flex items-center gap-2 bg-gradient-to-br from-brand-copper/30 to-brand-bronze/20 backdrop-blur-md border-2 border-brand-gold/40 hover:border-brand-gold text-white font-bold text-base px-7 py-4 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-copper/30 animate-bounce-soft"
                 >
-                  <Phone className="w-5 h-5" />
-                  Call {PHONE}
+                  <Phone className="w-5 h-5 text-brand-gold" />
+                  <span>Call {PHONE}</span>
                 </a>
-              </div>
-
-              {/* Service badges — row of 3 glass tiles under the buttons */}
-              <div className="mt-6 flex flex-row gap-3 animate-fade-up-delay-4">
-                <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 text-white">
-                  <Clock className="w-4 h-4 text-brand-gold" />
-                  <span className="text-sm font-semibold">Same-Day Service</span>
-                </div>
-                <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 text-white">
-                  <ShieldCheck className="w-4 h-4 text-brand-gold" />
-                  <span className="text-sm font-semibold">Licensed & Insured</span>
-                </div>
-                <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 text-white">
-                  <ShieldCheck className="w-4 h-4 text-brand-gold" />
-                  <span className="text-sm font-semibold">NJDEP Compliant</span>
-                </div>
-              </div>
-
-              {/* Trust strip — overlaid inside the hero, bottom-left */}
-              <div className="mt-10 animate-fade-up-delay-5">
-                <div className="flex flex-col gap-2 text-white">
-                  <div className="flex items-center gap-3">
-                    <div className="flex text-brand-gold">
-                      <Star className="w-5 h-5 fill-current" />
-                      <Star className="w-5 h-5 fill-current" />
-                      <Star className="w-5 h-5 fill-current" />
-                      <Star className="w-5 h-5 fill-current" />
-                      <Star className="w-5 h-5 fill-current" />
-                    </div>
-                    <span className="text-sm lg:text-base font-medium">Trusted by restaurants throughout New Jersey</span>
-                  </div>
-                  <div className="text-xs lg:text-sm text-gray-300 flex flex-row gap-x-3">
-                    <span>NJDEP Licensed</span><span>•</span>
-                    <span>Fully Insured</span><span>•</span>
-                    <span>Emergency Response</span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -210,7 +171,7 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/90 to-transparent" />
 
           {/* Mobile content */}
-          <div className="relative z-10 flex flex-col min-h-screen px-6 pt-28 pb-8">
+          <div className="relative z-10 flex flex-col items-center min-h-screen px-6 pt-28 pb-8 text-center">
             <div className="animate-fade-up">
               <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/25 rounded-full px-5 py-2.5 text-xs font-medium text-white shadow-lg shadow-black/20">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -218,17 +179,14 @@ export default function Home() {
               </div>
             </div>
 
-            <h1 className="mt-8 font-display font-extrabold text-white text-[2.75rem] leading-[1.05] tracking-tight animate-fade-up-delay-1">
+            <h1 className="mt-8 font-display font-extrabold text-white text-[2.75rem] leading-[1.05] tracking-tight animate-fade-up-delay-1 drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
               Commercial{' '}
               <span className="text-brand-gold">Grease Trap</span>{' '}
               Cleaning NJ Restaurants Can Count On
             </h1>
 
             <p className="mt-6 text-base text-gray-200 leading-relaxed animate-fade-up-delay-2">
-              Licensed grease trap pumping, cleaning, maintenance, installation and emergency service throughout New Jersey.<br />
-              Fast response.<br />
-              Fully insured.<br />
-              NJDEP compliant.
+              Licensed grease trap pumping, cleaning, maintenance, installation and emergency service throughout New Jersey.
             </p>
 
             <div className="mt-10 animate-fade-up-delay-3">
@@ -259,23 +217,19 @@ export default function Home() {
 
             <div className="flex-1 min-h-[48px]" />
 
-            <div className="animate-fade-up-delay-4">
-              <div className="flex flex-col items-center text-center gap-3.5 mx-auto">
-                <div className="flex items-center justify-center gap-3">
-                  <div className="flex text-brand-gold">
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                  </div>
-                  <span className="text-sm font-semibold text-white">Trusted by restaurants throughout New Jersey</span>
-                </div>
-                <div className="text-xs text-gray-300 flex flex-wrap gap-x-3 gap-y-1 justify-center">
-                  <span>NJDEP Licensed</span><span>•</span>
-                  <span>Fully Insured</span><span>•</span>
-                  <span>Emergency Response</span>
-                </div>
+            <div className="animate-fade-up-delay-4 flex flex-col items-center text-center gap-3">
+              <div className="flex text-brand-gold">
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+              </div>
+              <span className="text-sm font-semibold text-white">Trusted by restaurants throughout New Jersey</span>
+              <div className="text-xs text-gray-300 flex flex-wrap gap-x-3 gap-y-1 justify-center">
+                <span>NJDEP Licensed</span><span>•</span>
+                <span>Fully Insured</span><span>•</span>
+                <span>Emergency Response</span>
               </div>
             </div>
           </div>
@@ -283,39 +237,10 @@ export default function Home() {
       </section>
 
       {/* ============================================================
-          SERVICE CARDS — 3 equal-width glass cards, one row
-          ============================================================ */}
-      <section className="bg-[#0D0D0D] px-6 sm:px-8 lg:px-12 py-16 sm:py-20">
-        <RevealGroup className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-          <Item variant={popVariant} className="h-full">
-            <ServiceCard
-              icon={<Clock className="w-10 h-10 sm:w-12 sm:h-12" />}
-              title="Same-Day Service"
-              desc="We show up when you need us most."
-            />
-          </Item>
-          <Item variant={popVariant} className="h-full">
-            <ServiceCard
-              icon={<ShieldCheck className="w-10 h-10 sm:w-12 sm:h-12" />}
-              title="Licensed & Insured"
-              desc="Fully licensed, fully insured for your peace of mind."
-            />
-          </Item>
-          <Item variant={popVariant} className="h-full">
-            <ServiceCard
-              icon={<Droplets className="w-10 h-10 sm:w-12 sm:h-12" />}
-              title="NJDEP Compliant"
-              desc="We follow all NJDEP guidelines and regulations."
-            />
-          </Item>
-        </RevealGroup>
-      </section>
-
-      {/* ============================================================
           STATS — dark glass container, 2x2 on mobile, 1x4 on desktop
           ============================================================ */}
-      <section className="bg-[#0D0D0D] px-6 sm:px-8 lg:px-12 pb-16 sm:pb-20">
-        <Reveal className="max-w-7xl mx-auto bg-white/[0.03] backdrop-blur border border-brand-copper/20 rounded-3xl p-6 sm:p-10">
+      <section className="bg-[#0D0D0D] px-6 sm:px-8 lg:px-12 pb-12 sm:pb-16">
+        <Reveal className="max-w-7xl mx-auto bg-white/[0.03] backdrop-blur border-2 border-brand-copper rounded-3xl p-6 sm:p-10">
           <RevealGroup className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 sm:gap-x-8">
             <Item variant={popVariant}><Stat icon={<Calendar className="w-7 h-7 sm:w-9 sm:h-9" />} value="2008" label="Founded" /></Item>
             <Item variant={popVariant}><Stat icon={<Users className="w-7 h-7 sm:w-9 sm:h-9" />} value="2,500+" label="Restaurants Served" /></Item>
@@ -328,7 +253,7 @@ export default function Home() {
       {/* ============================================================
           SERVICES GRID
           ============================================================ */}
-      <section className="py-20 sm:py-24 bg-[#0D0D0D] text-white">
+      <section className="pt-0 pb-20 bg-[#0D0D0D] text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <Reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
             <div className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-3 font-semibold">What we do</div>
@@ -352,7 +277,7 @@ export default function Home() {
             <Item className="h-full">
               <FeatureCard
                 icon={Truck}
-                accent="from-amber-500 to-orange-600"
+                accent="from-brand-copper to-brand-sienna"
                 title="Grease Collection"
                 desc="Used cooking oil and yellow grease pickup. We buy it or haul it."
                 features={['We buy or haul', 'Sealed transfer', 'No spills', 'Recycled properly']}
@@ -361,7 +286,7 @@ export default function Home() {
             <Item className="h-full">
               <FeatureCard
                 icon={FileCheck}
-                accent="from-emerald-500 to-teal-600"
+                accent="from-brand-copper to-brand-sienna"
                 title="FOG Compliance"
                 desc="NJDEP manifest documentation, interceptor inspections, and municipal FOG programs."
                 features={['NJDEP manifests', 'Municipal FOG', 'Interceptors', 'Audit-ready']}
@@ -370,7 +295,7 @@ export default function Home() {
             <Item className="h-full">
               <FeatureCard
                 icon={Wrench}
-                accent="from-sky-500 to-blue-600"
+                accent="from-brand-copper to-brand-sienna"
                 title="Line Jetting"
                 desc="High-pressure hydro-jetting for clogged drains, laterals, and grease-laden sewer pipes."
                 features={['Hydro-jetting', 'Drain lines', 'Sewer laterals', 'Cleared fast']}
@@ -379,7 +304,7 @@ export default function Home() {
             <Item className="h-full">
               <FeatureCard
                 icon={Clock}
-                accent="from-rose-500 to-red-600"
+                accent="from-brand-copper to-brand-sienna"
                 title="24/7 Emergency"
                 desc="Backups, overflows, and after-hours emergencies. Real human dispatch — no phone trees."
                 features={['24/7 dispatch', 'No phone trees', 'Real humans', 'Fast response']}
@@ -388,7 +313,7 @@ export default function Home() {
             <Item className="h-full">
               <FeatureCard
                 icon={Award}
-                accent="from-violet-500 to-purple-600"
+                accent="from-brand-copper to-brand-sienna"
                 title="Maintenance Plans"
                 desc="Monthly, quarterly, or custom schedules. Predictable pricing and priority service."
                 features={['Monthly / quarterly', 'Flat-rate pricing', 'Priority service', 'Locked-in rates']}
@@ -514,49 +439,34 @@ function Stat({ icon, value, label }) {
 // ============================================================
 function FeatureCard({ icon: Icon, accent, title, desc, features = [] }) {
   return (
-    <div className="group relative h-full flex flex-col p-7 sm:p-8 bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur border border-white/10 rounded-2xl hover:border-brand-gold/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-copper/20 transition-all duration-300 overflow-hidden">
+    <div className="group relative h-full flex flex-col p-7 sm:p-8 bg-black border-2 border-brand-copper/50 rounded-2xl hover:border-brand-copper hover:-translate-y-1 transition-all duration-300 overflow-hidden">
       {/* Top accent bar */}
-      <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${accent} opacity-60 group-hover:opacity-100 transition-opacity`} />
-
-      {/* Background glow on hover */}
-      <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br ${accent} opacity-0 group-hover:opacity-10 blur-3xl transition-opacity duration-500`} />
+      <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${accent}`} />
 
       {/* Icon */}
-      <div className={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${accent} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-        <Icon className="w-7 h-7 text-white" strokeWidth={2} />
+      <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${accent} flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-all duration-300`}>
+        <Icon className="w-8 h-8 text-white" strokeWidth={2} />
       </div>
 
       {/* Title + desc */}
-      <h3 className="relative font-bold text-xl text-white mb-2 group-hover:text-brand-gold transition-colors">
+      <h3 className="relative font-bold text-2xl text-white mb-3">
         {title}
       </h3>
-      <p className="relative text-sm text-gray-400 leading-relaxed mb-5">
+      <p className="relative text-base text-gray-400 leading-relaxed mb-6">
         {desc}
       </p>
 
       {/* Feature pills */}
       {features.length > 0 && (
-        <ul className="relative space-y-2 mb-5">
+        <ul className="relative space-y-3">
           {features.map((f, i) => (
-            <li key={i} className="flex items-center gap-2 text-sm text-gray-300">
-              <span className={`flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br ${accent} flex items-center justify-center`}>
-                <Check className="w-3 h-3 text-white" strokeWidth={3} />
-              </span>
+            <li key={i} className="flex items-center gap-3 text-sm text-gray-300">
+              <Check className={`w-4 h-4 bg-gradient-to-br ${accent} text-white rounded-full p-0.5 flex-shrink-0`} strokeWidth={3} />
               {f}
             </li>
           ))}
         </ul>
       )}
-
-      {/* Bottom CTA row */}
-      <div className="relative mt-auto pt-5 border-t border-white/5 flex items-center justify-between">
-        <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 group-hover:text-brand-gold transition-colors">
-          Learn more
-        </span>
-        <span className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-brand-copper flex items-center justify-center transition-all">
-          <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-white group-hover:rotate-45 transition-all" />
-        </span>
-      </div>
     </div>
   );
 }

@@ -1,0 +1,110 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "The Grease Trappers, LLC" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "The Grease Trappers, LLC" [ref=e8]
+      - navigation [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - text: Home
+        - link "Services" [ref=e11] [cursor=pointer]:
+          - /url: /services
+          - text: Services
+        - link "About" [ref=e12] [cursor=pointer]:
+          - /url: /about
+          - text: About
+        - link "Free Quote" [ref=e13] [cursor=pointer]:
+          - /url: /quote
+          - text: Free Quote
+        - link "(888) 982-1989" [ref=e14] [cursor=pointer]:
+          - /url: tel:8889821989
+          - img [ref=e15]
+          - text: (888) 982-1989
+        - link "Login" [ref=e17] [cursor=pointer]:
+          - /url: https://grease-trappers-admin-v2.onrender.com/login
+          - img [ref=e18]
+          - text: Login
+  - main [ref=e22]:
+    - generic [ref=e25]:
+      - generic [ref=e26]: About us
+      - heading "Family-owned NJ grease trap company since 2008" [level=1] [ref=e27]:
+        - text: Family-owned NJ grease trap
+        - generic [ref=e28]: company since 2008
+      - paragraph [ref=e29]: We started with one truck and a promise to be the most reliable grease trap service in New Jersey. Today we maintain hundreds of traps across the state — and we still answer the phone ourselves.
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - heading "Reliable. Compliant. Local." [level=2] [ref=e34]
+          - generic [ref=e35]:
+            - paragraph [ref=e36]: The Grease Trappers is a New Jersey-based, family-run grease trap service company. We know the FOG regulations, the municipal inspectors, and the quirks of every kind of commercial kitchen in the state.
+            - paragraph [ref=e37]: We're not a national franchise. We're local folks who care about doing the job right. Our trucks roll out of Newark every morning and we cover the entire state.
+            - paragraph [ref=e38]: Every job is logged, manifest-documented, and tracked. You get a portal to pull your records any time, day or night.
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - img [ref=e42]
+            - heading "NJDEP Licensed" [level=3] [ref=e45]
+            - paragraph [ref=e46]: "Waste hauler #NJ-WH-XXXXX. Full manifests and documentation."
+          - generic [ref=e47]:
+            - img [ref=e49]
+            - heading "Fully Insured" [level=3] [ref=e52]
+            - paragraph [ref=e53]: $2M general liability + workers comp. COI on request.
+          - generic [ref=e54]:
+            - img [ref=e56]
+            - heading "Family Owned" [level=3] [ref=e61]
+            - paragraph [ref=e62]: Local NJ owners. Not a national franchise.
+          - generic [ref=e63]:
+            - img [ref=e65]
+            - heading "Statewide Coverage" [level=3] [ref=e68]
+            - paragraph [ref=e69]: All 21 counties. Newark-based fleet.
+      - generic [ref=e71]:
+        - img [ref=e72]
+        - heading "Our promise" [level=2] [ref=e74]
+        - paragraph [ref=e75]: "\"Show up when we say we will. Do the work the right way. Leave the site cleaner than we found it. If anything's off, we fix it — no arguments, no charge.\""
+        - paragraph [ref=e76]: — Bobby Craig, Owner
+    - generic [ref=e78]:
+      - heading "Join hundreds of NJ kitchens" [level=2] [ref=e79]
+      - paragraph [ref=e80]: Restaurants, hospitals, schools, corporate cafeterias, and food trucks trust us with their grease traps. You should too.
+      - generic [ref=e81]:
+        - link "Request Free Quote" [ref=e82] [cursor=pointer]:
+          - /url: /quote
+          - text: Request Free Quote
+          - img [ref=e83]
+        - link "(888) 982-1989" [ref=e85] [cursor=pointer]:
+          - /url: tel:8889821989
+          - img [ref=e86]
+          - text: (888) 982-1989
+  - contentinfo [ref=e88]:
+    - generic [ref=e89]:
+      - generic [ref=e90]:
+        - img "The Grease Trappers, LLC" [ref=e92]
+        - paragraph [ref=e93]: New Jersey's most trusted grease trap cleaning and pumping service. Restaurant-grade FOG compliance for commercial kitchens.
+      - generic [ref=e94]:
+        - heading "Company" [level=4] [ref=e95]
+        - list [ref=e96]:
+          - listitem [ref=e97]:
+            - link "Home" [ref=e98] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e99]:
+            - link "Services" [ref=e100] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=e101]:
+            - link "About" [ref=e102] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e103]:
+            - link "Free Quote" [ref=e104] [cursor=pointer]:
+              - /url: /quote
+      - generic [ref=e105]:
+        - heading "Contact" [level=4] [ref=e106]
+        - list [ref=e107]:
+          - listitem [ref=e108]:
+            - link "(888) 982-1989" [ref=e109] [cursor=pointer]:
+              - /url: tel:8889821989
+          - listitem [ref=e110]:
+            - link "service@greasetrapers.com" [ref=e111] [cursor=pointer]:
+              - /url: mailto:service@greasetrapers.com
+          - listitem [ref=e112]: 24/7 Emergency Service
+          - listitem [ref=e113]: NJDEP Licensed & Insured
+    - generic [ref=e115]:
+      - generic [ref=e116]: © 2026 The Grease Trappers, LLC. All rights reserved.
+      - generic [ref=e117]: "NJDEP Waste Hauler #NJ-WH-XXXXX · Fully Insured"

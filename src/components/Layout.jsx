@@ -6,6 +6,7 @@ import { BUSINESS_NAME, PHONE } from '../config/brand';
 export default function Layout({ children }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const loc = useLocation();
   const isHome = loc.pathname === '/';
 
@@ -17,7 +18,12 @@ export default function Layout({ children }) {
   ];
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 50);
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? Math.min((y / docHeight) * 100, 100) : 0);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -37,15 +43,36 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#0D0D0D]">
+      {/* Scroll progress bar */}
+      <div
+        className="fixed top-0 left-0 right-0 h-[3px] z-[60] pointer-events-none"
+        aria-hidden="true"
+      >
+        <div
+          className="h-full bg-gradient-to-r from-brand-copper via-brand-gold to-brand-champagne transition-[width] duration-150 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+      {/* Floating call widget */}
+      {scrolled && (
+        <a
+          href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
+          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-gradient-to-r from-brand-copper to-brand-sienna text-white px-5 py-4 rounded-full shadow-2xl shadow-brand-copper/50 hover:scale-105 transition-transform animate-fade-up"
+          style={{ boxShadow: '0 10px 30px -5px rgba(185, 120, 50, 0.5)' }}
+        >
+          <Phone className="w-6 h-6" />
+          <span className="font-bold hidden sm:inline">{PHONE}</span>
+        </a>
+      )}
       <header className={headerClass}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="flex items-center justify-between h-20 relative">
             {/* Official logo — wordmark built in */}
-            <Link to="/" className="flex items-center group">
+            <Link to="/" className="flex items-center group md:relative md:static absolute left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0">
               <img
                 src="/logo.png"
                 alt={BUSINESS_NAME}
-                className="h-[4.5rem] sm:h-14 md:h-[4.75rem] lg:h-20 w-auto transition-all"
+                className="h-[4.5rem] sm:h-14 md:h-[4.75rem] lg:h-20 w-auto transition-all drop-shadow-[0_0_15px_rgba(255,255,255,0.9)]"
               />
             </Link>
 
@@ -123,7 +150,7 @@ export default function Layout({ children }) {
       <main className="flex-1">{children}</main>
 
       <footer className="bg-[#0D0D0D] text-gray-300 border-t border-brand-copper/20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-16 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="mb-4">
               <img src="/logo.png" alt={BUSINESS_NAME} className="h-20 w-auto" />
@@ -153,7 +180,7 @@ export default function Layout({ children }) {
           </div>
         </div>
         <div className="border-t border-gray-800">
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6 text-xs text-gray-500 flex flex-col sm:flex-row gap-2 justify-between">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-6 text-xs text-gray-500 flex flex-col sm:flex-row gap-2 justify-between">
             <span>© {new Date().getFullYear()} {BUSINESS_NAME}. All rights reserved.</span>
             <span>NJDEP Waste Hauler #NJ-WH-XXXXX · Fully Insured</span>
           </div>
