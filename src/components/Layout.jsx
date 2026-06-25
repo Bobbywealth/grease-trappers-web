@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Droplets, Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { BUSINESS_NAME, PHONE } from '../config/brand';
 
 export default function Layout({ children }) {
@@ -23,7 +23,6 @@ export default function Layout({ children }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => { setOpen(false); }, [loc.pathname]);
 
   const transparent = isHome && !scrolled;
@@ -41,18 +40,15 @@ export default function Layout({ children }) {
       <header className={headerClass}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo + wordmark */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-gold to-brand-copper rounded-xl blur-md opacity-50 group-hover:opacity-80 transition-opacity" />
-                <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-brand-gold to-brand-copper flex items-center justify-center shadow-lg">
-                  <Droplets className="w-6 h-6 sm:w-7 sm:h-7 text-black" />
-                </div>
-              </div>
-              <div className={`leading-tight ${transparent ? 'text-white' : 'text-gray-900'}`}>
-                <div className="font-display font-extrabold text-base sm:text-lg tracking-tight">GREASE</div>
-                <div className="font-display font-extrabold text-base sm:text-lg tracking-tight">TRAPPERS<span className="text-brand-gold">,</span> <span className="text-brand-gold">LLC</span></div>
-              </div>
+            {/* Official logo — wordmark built in */}
+            <Link to="/" className="flex items-center group">
+              <img
+                src="/logo.jpeg"
+                alt={BUSINESS_NAME}
+                className={`h-12 sm:h-14 md:h-16 w-auto transition-all ${
+                  transparent ? 'brightness-100' : 'brightness-100'
+                }`}
+              />
             </Link>
 
             {/* Desktop nav */}
@@ -116,16 +112,10 @@ export default function Layout({ children }) {
       <footer className="bg-[#0D0D0D] text-gray-300 border-t border-brand-copper/20">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-gold to-brand-copper flex items-center justify-center">
-                <Droplets className="w-6 h-6 text-black" />
-              </div>
-              <div className="leading-tight">
-                <div className="font-display font-extrabold text-lg text-white">GREASE</div>
-                <div className="font-display font-extrabold text-lg text-white">TRAPPERS<span className="text-brand-gold">,</span> <span className="text-brand-gold">LLC</span></div>
-              </div>
+            <div className="mb-4">
+              <img src="/logo.jpeg" alt={BUSINESS_NAME} className="h-16 w-auto" />
             </div>
-            <p className="text-sm text-gray-400 max-w-md">
+            <p className="text-sm text-gray-400 max-w-md mt-4">
               New Jersey's most trusted grease trap cleaning and pumping service.
               Restaurant-grade FOG compliance for commercial kitchens.
             </p>
@@ -159,3 +149,5 @@ export default function Layout({ children }) {
     </div>
   );
 }
+</content>
+</invoke>
