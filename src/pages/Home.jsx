@@ -1,11 +1,78 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 import {
   Droplets, ShieldCheck, Clock, Award, Truck, FileCheck, Wrench, ArrowRight,
   Check, Star, Phone, Calendar, Users, Building2, Menu, Lock, Sparkles, ArrowUpRight
 } from 'lucide-react';
 import { PHONE, HERO_IMAGE } from '../config/brand';
 import SEO from '../components/SEO';
+
+// ============================================================
+// MOTION — scroll-reveal variants (respects prefers-reduced-motion)
+// ============================================================
+const EASE = [0.22, 1, 0.36, 1];
+
+const fadeUpVariant = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+};
+
+const popVariant = {
+  hidden: { opacity: 0, y: 20, scale: 0.96 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: EASE } },
+};
+
+const staggerParent = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+};
+
+// Reveal a single block as it scrolls into view
+function Reveal({ children, className, variant = fadeUpVariant, delay = 0 }) {
+  const reduce = useReducedMotion();
+  if (reduce) return <div className={className}>{children}</div>;
+  return (
+    <motion.div
+      className={className}
+      variants={variant}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// Stagger a grid/group of children as the container enters view
+function RevealGroup({ children, className, as: Tag = motion.div }) {
+  const reduce = useReducedMotion();
+  if (reduce) return <div className={className}>{children}</div>;
+  return (
+    <Tag
+      className={className}
+      variants={staggerParent}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-60px' }}
+    >
+      {children}
+    </Tag>
+  );
+}
+
+// A child item inside a RevealGroup
+function Item({ children, className, variant = fadeUpVariant }) {
+  const reduce = useReducedMotion();
+  if (reduce) return <div className={className}>{children}</div>;
+  return (
+    <motion.div className={className} variants={variant}>
+      {children}
+    </motion.div>
+  );
+}
 
 export default function Home() {
   return (
@@ -219,37 +286,43 @@ export default function Home() {
           SERVICE CARDS — 3 equal-width glass cards, one row
           ============================================================ */}
       <section className="bg-[#0D0D0D] px-6 sm:px-8 lg:px-12 py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-          <ServiceCard
-            icon={<Clock className="w-10 h-10 sm:w-12 sm:h-12" />}
-            title="Same-Day Service"
-            desc="We show up when you need us most."
-          />
-          <ServiceCard
-            icon={<ShieldCheck className="w-10 h-10 sm:w-12 sm:h-12" />}
-            title="Licensed & Insured"
-            desc="Fully licensed, fully insured for your peace of mind."
-          />
-          <ServiceCard
-            icon={<Droplets className="w-10 h-10 sm:w-12 sm:h-12" />}
-            title="NJDEP Compliant"
-            desc="We follow all NJDEP guidelines and regulations."
-          />
-        </div>
+        <RevealGroup className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+          <Item variant={popVariant} className="h-full">
+            <ServiceCard
+              icon={<Clock className="w-10 h-10 sm:w-12 sm:h-12" />}
+              title="Same-Day Service"
+              desc="We show up when you need us most."
+            />
+          </Item>
+          <Item variant={popVariant} className="h-full">
+            <ServiceCard
+              icon={<ShieldCheck className="w-10 h-10 sm:w-12 sm:h-12" />}
+              title="Licensed & Insured"
+              desc="Fully licensed, fully insured for your peace of mind."
+            />
+          </Item>
+          <Item variant={popVariant} className="h-full">
+            <ServiceCard
+              icon={<Droplets className="w-10 h-10 sm:w-12 sm:h-12" />}
+              title="NJDEP Compliant"
+              desc="We follow all NJDEP guidelines and regulations."
+            />
+          </Item>
+        </RevealGroup>
       </section>
 
       {/* ============================================================
           STATS — dark glass container, 2x2 on mobile, 1x4 on desktop
           ============================================================ */}
       <section className="bg-[#0D0D0D] px-6 sm:px-8 lg:px-12 pb-16 sm:pb-20">
-        <div className="max-w-7xl mx-auto bg-white/[0.03] backdrop-blur border border-brand-copper/20 rounded-3xl p-6 sm:p-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 sm:gap-x-8">
-            <Stat icon={<Calendar className="w-7 h-7 sm:w-9 sm:h-9" />} value="2008" label="Founded" />
-            <Stat icon={<Users className="w-7 h-7 sm:w-9 sm:h-9" />} value="2,500+" label="Restaurants Served" />
-            <Stat icon={<Clock className="w-7 h-7 sm:w-9 sm:h-9" />} value="24/7" label="Emergency Response" />
-            <Stat icon={<Building2 className="w-7 h-7 sm:w-9 sm:h-9" />} value="100%" label="Commercial Kitchens" />
-          </div>
-        </div>
+        <Reveal className="max-w-7xl mx-auto bg-white/[0.03] backdrop-blur border border-brand-copper/20 rounded-3xl p-6 sm:p-10">
+          <RevealGroup className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 sm:gap-x-8">
+            <Item variant={popVariant}><Stat icon={<Calendar className="w-7 h-7 sm:w-9 sm:h-9" />} value="2008" label="Founded" /></Item>
+            <Item variant={popVariant}><Stat icon={<Users className="w-7 h-7 sm:w-9 sm:h-9" />} value="2,500+" label="Restaurants Served" /></Item>
+            <Item variant={popVariant}><Stat icon={<Clock className="w-7 h-7 sm:w-9 sm:h-9" />} value="24/7" label="Emergency Response" /></Item>
+            <Item variant={popVariant}><Stat icon={<Building2 className="w-7 h-7 sm:w-9 sm:h-9" />} value="100%" label="Commercial Kitchens" /></Item>
+          </RevealGroup>
+        </Reveal>
       </section>
 
       {/* ============================================================
@@ -257,7 +330,7 @@ export default function Home() {
           ============================================================ */}
       <section className="py-20 sm:py-24 bg-[#0D0D0D] text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+          <Reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
             <div className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-3 font-semibold">What we do</div>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
               Full-Service Grease Trap Management
@@ -265,51 +338,63 @@ export default function Home() {
             <p className="text-lg text-gray-400">
               From routine pumping to emergency unblocks, we keep your kitchen compliant and your drains flowing.
             </p>
-          </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
-            <FeatureCard
-              icon={Droplets}
-              accent="from-brand-copper to-brand-sienna"
-              title="Grease Trap Pumping"
-              desc="Scheduled or on-demand cleaning for indoor and outdoor traps of any size."
-              features={['Full pump-out', 'Scraping & rinse', 'Indoor & outdoor', 'Any size']}
-            />
-            <FeatureCard
-              icon={Truck}
-              accent="from-amber-500 to-orange-600"
-              title="Grease Collection"
-              desc="Used cooking oil and yellow grease pickup. We buy it or haul it."
-              features={['We buy or haul', 'Sealed transfer', 'No spills', 'Recycled properly']}
-            />
-            <FeatureCard
-              icon={FileCheck}
-              accent="from-emerald-500 to-teal-600"
-              title="FOG Compliance"
-              desc="NJDEP manifest documentation, interceptor inspections, and municipal FOG programs."
-              features={['NJDEP manifests', 'Municipal FOG', 'Interceptors', 'Audit-ready']}
-            />
-            <FeatureCard
-              icon={Wrench}
-              accent="from-sky-500 to-blue-600"
-              title="Line Jetting"
-              desc="High-pressure hydro-jetting for clogged drains, laterals, and grease-laden sewer pipes."
-              features={['Hydro-jetting', 'Drain lines', 'Sewer laterals', 'Cleared fast']}
-            />
-            <FeatureCard
-              icon={Clock}
-              accent="from-rose-500 to-red-600"
-              title="24/7 Emergency"
-              desc="Backups, overflows, and after-hours emergencies. Real human dispatch — no phone trees."
-              features={['24/7 dispatch', 'No phone trees', 'Real humans', 'Fast response']}
-            />
-            <FeatureCard
-              icon={Award}
-              accent="from-violet-500 to-purple-600"
-              title="Maintenance Plans"
-              desc="Monthly, quarterly, or custom schedules. Predictable pricing and priority service."
-              features={['Monthly / quarterly', 'Flat-rate pricing', 'Priority service', 'Locked-in rates']}
-            />
-          </div>
+          </Reveal>
+          <RevealGroup className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
+            <Item className="h-full">
+              <FeatureCard
+                icon={Droplets}
+                accent="from-brand-copper to-brand-sienna"
+                title="Grease Trap Pumping"
+                desc="Scheduled or on-demand cleaning for indoor and outdoor traps of any size."
+                features={['Full pump-out', 'Scraping & rinse', 'Indoor & outdoor', 'Any size']}
+              />
+            </Item>
+            <Item className="h-full">
+              <FeatureCard
+                icon={Truck}
+                accent="from-amber-500 to-orange-600"
+                title="Grease Collection"
+                desc="Used cooking oil and yellow grease pickup. We buy it or haul it."
+                features={['We buy or haul', 'Sealed transfer', 'No spills', 'Recycled properly']}
+              />
+            </Item>
+            <Item className="h-full">
+              <FeatureCard
+                icon={FileCheck}
+                accent="from-emerald-500 to-teal-600"
+                title="FOG Compliance"
+                desc="NJDEP manifest documentation, interceptor inspections, and municipal FOG programs."
+                features={['NJDEP manifests', 'Municipal FOG', 'Interceptors', 'Audit-ready']}
+              />
+            </Item>
+            <Item className="h-full">
+              <FeatureCard
+                icon={Wrench}
+                accent="from-sky-500 to-blue-600"
+                title="Line Jetting"
+                desc="High-pressure hydro-jetting for clogged drains, laterals, and grease-laden sewer pipes."
+                features={['Hydro-jetting', 'Drain lines', 'Sewer laterals', 'Cleared fast']}
+              />
+            </Item>
+            <Item className="h-full">
+              <FeatureCard
+                icon={Clock}
+                accent="from-rose-500 to-red-600"
+                title="24/7 Emergency"
+                desc="Backups, overflows, and after-hours emergencies. Real human dispatch — no phone trees."
+                features={['24/7 dispatch', 'No phone trees', 'Real humans', 'Fast response']}
+              />
+            </Item>
+            <Item className="h-full">
+              <FeatureCard
+                icon={Award}
+                accent="from-violet-500 to-purple-600"
+                title="Maintenance Plans"
+                desc="Monthly, quarterly, or custom schedules. Predictable pricing and priority service."
+                features={['Monthly / quarterly', 'Flat-rate pricing', 'Priority service', 'Locked-in rates']}
+              />
+            </Item>
+          </RevealGroup>
           <div className="text-center mt-12">
             <Link
               to="/services"
@@ -327,7 +412,7 @@ export default function Home() {
           ============================================================ */}
       <section className="py-20 sm:py-24 bg-[#111111] text-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+          <Reveal className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
             <div className="text-xs uppercase tracking-[0.2em] text-brand-gold mb-3 font-semibold">How it works</div>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
               Three steps. That's it.
@@ -335,12 +420,12 @@ export default function Home() {
             <p className="text-lg text-gray-400">
               From quote to clean trap. Most jobs scheduled within 48 hours.
             </p>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-8 sm:gap-10">
-            <Step n={1} title="Tell us about your trap" desc="Submit a quote request or call us. We'll need the trap size, location, and current service schedule." />
-            <Step n={2} title="Get a fixed quote" desc="Flat-rate pricing based on trap size and frequency. No surprise fees. Quotes in under 2 hours during business hours." />
-            <Step n={3} title="We handle everything" desc="We arrive on schedule, do the work, leave manifests for your files. Pay online or net-30 for businesses." />
-          </div>
+          </Reveal>
+          <RevealGroup className="grid sm:grid-cols-3 gap-8 sm:gap-10">
+            <Item><Step n={1} title="Tell us about your trap" desc="Submit a quote request or call us. We'll need the trap size, location, and current service schedule." /></Item>
+            <Item><Step n={2} title="Get a fixed quote" desc="Flat-rate pricing based on trap size and frequency. No surprise fees. Quotes in under 2 hours during business hours." /></Item>
+            <Item><Step n={3} title="We handle everything" desc="We arrive on schedule, do the work, leave manifests for your files. Pay online or net-30 for businesses." /></Item>
+          </RevealGroup>
         </div>
       </section>
 
@@ -352,7 +437,7 @@ export default function Home() {
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-champagne rounded-full blur-3xl" />
         </div>
-        <div className="relative max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+        <Reveal className="relative max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
             Ready to get on the schedule?
           </h2>
@@ -390,7 +475,7 @@ export default function Home() {
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );
@@ -401,7 +486,7 @@ export default function Home() {
 // ============================================================
 function ServiceCard({ icon, title, desc }) {
   return (
-    <div className="group bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 text-center hover:border-brand-gold/50 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-brand-copper/20 transition-all">
+    <div className="group h-full bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 text-center hover:border-brand-gold/50 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-brand-copper/20 hover:-translate-y-1 transition-all duration-300">
       <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-brand-copper/15 text-brand-gold mb-5 group-hover:bg-brand-copper group-hover:text-white transition-all">
         {icon}
       </div>
@@ -429,7 +514,7 @@ function Stat({ icon, value, label }) {
 // ============================================================
 function FeatureCard({ icon: Icon, accent, title, desc, features = [] }) {
   return (
-    <div className="group relative p-7 sm:p-8 bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur border border-white/10 rounded-2xl hover:border-brand-gold/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-copper/20 transition-all duration-300 overflow-hidden">
+    <div className="group relative h-full flex flex-col p-7 sm:p-8 bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur border border-white/10 rounded-2xl hover:border-brand-gold/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-copper/20 transition-all duration-300 overflow-hidden">
       {/* Top accent bar */}
       <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${accent} opacity-60 group-hover:opacity-100 transition-opacity`} />
 
@@ -464,7 +549,7 @@ function FeatureCard({ icon: Icon, accent, title, desc, features = [] }) {
       )}
 
       {/* Bottom CTA row */}
-      <div className="relative pt-5 border-t border-white/5 flex items-center justify-between">
+      <div className="relative mt-auto pt-5 border-t border-white/5 flex items-center justify-between">
         <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 group-hover:text-brand-gold transition-colors">
           Learn more
         </span>
