@@ -39,7 +39,7 @@ export default function App() {
       {/* Admin login (no public layout) */}
       <Route path="/login" element={<Login />} />
 
-      {/* Admin dashboard — protected, has its own layout */}
+      {/* Admin — protected, shares paths with marketing since auth gate prevents public access */}
       <Route
         path="/dashboard"
         element={
@@ -49,16 +49,69 @@ export default function App() {
         }
       >
         <Route index element={<Dashboard />} />
-        <Route path="customers" element={<Customers />} />
-        <Route path="customers/:id" element={<CustomerDetail />} />
-        <Route path="jobs" element={<Jobs />} />
-        <Route path="jobs/:id" element={<JobDetail />} />
-        <Route path="staff" element={<Staff />} />
-        <Route path="vehicles" element={<Vehicles />} />
-        <Route path="invoices" element={<Invoices />} />
-        <Route path="live-ops" element={<LiveOps />} />
-        <Route path="settings" element={<Settings />} />
       </Route>
+      <Route
+        path="/customers"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<Customers />} />
+        <Route path=":id" element={<CustomerDetail />} />
+      </Route>
+      <Route
+        path="/jobs"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<Jobs />} />
+        <Route path=":id" element={<JobDetail />} />
+      </Route>
+      <Route
+        path="/staff"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/vehicles"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/invoices"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/live-ops"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/settings"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }
+      />
 
       {/* Public marketing site */}
       <Route
