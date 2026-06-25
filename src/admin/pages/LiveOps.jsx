@@ -104,7 +104,7 @@ export default function LiveOps() {
                     </td>
                     <td className="px-3 py-2 font-medium">{s.total_hours || '—'}</td>
                     <td className="px-3 py-2 text-xs text-gray-500">
-                      {s.clock_in_address || (s.clock_in_lat ? `${s.clock_in_lat.toFixed(4)}, ${s.clock_in_lng.toFixed(4)}` : '—')}
+                      {s.clock_in_address || (s.clock_in_lat ? `${Number(s.clock_in_lat).toFixed(4)}, ${Number(s.clock_in_lng).toFixed(4)}` : '—')}
                     </td>
                   </tr>
                 ))}
