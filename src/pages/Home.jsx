@@ -80,17 +80,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right column — floating image card */}
-            <div className="relative overflow-hidden">
-              <img
-                src={HERO_IMAGE}
-                alt="The Grease Trappers crew servicing a NJ restaurant grease trap"
-                className="w-full h-full object-cover animate-zoom-hero"
-                loading="eager"
-                fetchpriority="high"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-            </div>
+            {/* Right column — empty spacer (image is the full-bleed background) */}
+            <div aria-hidden="true" />
           </div>
 
           {/* Desktop trust strip — sits below the hero */}
