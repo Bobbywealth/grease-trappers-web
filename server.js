@@ -24,10 +24,20 @@ app.get('/robots.txt', (_req, res) => {
   res.sendFile(path.join(distPath, 'robots.txt'));
 });
 
+// Serve every other static file in dist/ (logo.png, favicon.png, etc.) BEFORE SPA fallback
+app.use(express.static(distPath, {
+  maxAge: '1d',
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.png') || filePath.endsWith('.svg') || filePath.endsWith('.ico')) {
+      res.setHeader('Cache-Control', 'public, max-age=86400');
+    }
+  },
+}));
+
 // Health
 app.get('/healthz', (_req, res) => res.send('ok'));
 
-// SPA fallback — serve index.html for any non-asset route
+// SPA fallback — serve index.html for any non-asset route (must be LAST)
 app.get(/^(?!\/assets|\/healthz).*/, (_req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
