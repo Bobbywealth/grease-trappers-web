@@ -245,7 +245,7 @@ export default function Home() {
                 <Star className="w-5 h-5 fill-current" />
                 <span className="text-white font-bold">5.0 Rating</span>
               </div>
-              <p className="mt-1 text-base text-white font-medium text-center">500+ Restaurants Served</p>
+              <p className="mt-1 text-base text-white font-medium text-center">250+ Restaurants Served</p>
             </div>
           </div>
         </div>
@@ -257,8 +257,8 @@ export default function Home() {
       <section className="bg-[#0D0D0D] px-6 sm:px-8 lg:px-12 pt-4 pb-12 sm:pb-16">
         <Reveal className="max-w-7xl mx-auto bg-white/[0.03] backdrop-blur border-2 border-brand-copper rounded-b-3xl p-6 sm:p-10">
           <RevealGroup className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 sm:gap-x-8">
-            <Item variant={popVariant}><Stat icon={<Calendar className="w-8 h-8 sm:w-10 sm:h-10" />} value="2008" label="Founded" /></Item>
-            <Item variant={popVariant}><Stat icon={<Users className="w-8 h-8 sm:w-10 sm:h-10" />} value="2,500+" label="Restaurants Served" /></Item>
+            <Item variant={popVariant}><Stat icon={<Calendar className="w-8 h-8 sm:w-10 sm:h-10" />} value="2022" label="Founded" /></Item>
+            <Item variant={popVariant}><Stat icon={<Users className="w-8 h-8 sm:w-10 sm:h-10" />} value="250+" label="Restaurants Served" /></Item>
             <Item variant={popVariant}><Stat icon={<Clock className="w-8 h-8 sm:w-10 sm:h-10" />} value="24/7" label="Emergency Response" /></Item>
             <Item variant={popVariant}><Stat icon={<Building2 className="w-8 h-8 sm:w-10 sm:h-10" />} value="100%" label="Commercial Kitchens" /></Item>
           </RevealGroup>

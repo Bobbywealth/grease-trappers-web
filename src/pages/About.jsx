@@ -10,7 +10,7 @@ export default function About() {
     <>
       <SEO
         title="About The Grease Trappers | Family-Owned NJ Service Company"
-        description="Family-owned NJ grease trap company since 2008. NJDEP licensed, fully insured, statewide coverage. The Grease Trappers, LLC is New Jersey's most trusted grease trap service."
+        description="Family-owned NJ grease trap company since 2022. NJDEP licensed, fully insured, statewide coverage. The Grease Trappers, LLC is New Jersey's most trusted grease trap service."
         canonical="/about"
         keywords={[
           'NJ grease trap company',
@@ -36,7 +36,7 @@ export default function About() {
               <h1 className="font-display text-4xl md:text-6xl font-bold mb-6">
                 Family-owned NJ grease trap
                 <span className="block bg-gradient-to-r from-brand-copper to-brand-champagne bg-clip-text text-transparent">
-                  company since 2008
+                  company since 2022
                 </span>
               </h1>
               <p className="text-lg text-gray-300 max-w-2xl">
