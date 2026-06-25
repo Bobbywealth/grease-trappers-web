@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Lock } from 'lucide-react';
 import { BUSINESS_NAME, PHONE } from '../config/brand';
@@ -6,7 +6,10 @@ import { BUSINESS_NAME, PHONE } from '../config/brand';
 export default function Layout({ children }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [compact, setCompact] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const lastYRef = useRef(0);
   const loc = useLocation();
   const isHome = loc.pathname === '/';
 
@@ -21,10 +24,16 @@ export default function Layout({ children }) {
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 50);
+      setCompact(y > 120);
+      if (y > lastYRef.current && y > 100) {
+        setHidden(true);
+      } else if (y < lastYRef.current) {
+        setHidden(false);
+      }
+      lastYRef.current = y;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       setScrollProgress(docHeight > 0 ? Math.min((y / docHeight) * 100, 100) : 0);
     };
-    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -32,9 +41,14 @@ export default function Layout({ children }) {
   useEffect(() => { setOpen(false); }, [loc.pathname]);
 
   const transparent = isHome && !scrolled;
-  const headerClass = transparent
-    ? 'fixed top-0 left-0 right-0 z-50 bg-transparent'
-    : 'fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur shadow-sm';
+
+  const headerPadding = compact ? 'pt-2 pb-2' : 'pt-4 pb-0';
+  const headerHeight = compact ? 'h-14' : 'h-16';
+  const logoHeightMobile = compact ? 'h-10' : 'h-14';
+  const headerBg = transparent
+    ? 'bg-transparent'
+    : 'bg-white shadow-[0_2px_12px_rgba(0,0,0,0.08)] border-b border-gray-100';
+  const headerClass = `fixed top-0 left-0 right-0 z-50 ${headerBg} transition-all duration-300 ${headerPadding} ${headerHeight} ${hidden ? '-translate-y-full' : 'translate-y-0'}`;
 
   const linkBaseClass = (to) =>
     `relative block px-3 py-3 text-base font-medium transition-colors ${
@@ -65,14 +79,14 @@ export default function Layout({ children }) {
         </a>
       )}
       <header className={headerClass}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-4">
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+          <div className={`flex items-center justify-between ${headerHeight} transition-all duration-300`}>
             {/* Official logo — wordmark built in */}
             <Link to="/" className="flex items-center group md:relative md:static absolute left-1/2 md:left-auto -translate-x-1/2 md:translate-x-0">
               <img
                 src="/logo.png"
                 alt={BUSINESS_NAME}
-                className="h-[7rem] sm:h-14 md:h-[4.75rem] lg:h-20 w-auto transition-all drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]"
+                className={`${logoHeightMobile} md:h-[5.2rem] lg:h-[5.5rem] w-auto transition-all duration-300 ${transparent ? 'drop-shadow-[0_0_3px_rgba(255,255,255,0.25)]' : 'drop-shadow-none'}`}
               />
             </Link>
 
@@ -103,17 +117,17 @@ export default function Layout({ children }) {
             {/* Mobile hamburger */}
             <button
               onClick={() => setOpen(!open)}
-              className={`md:hidden p-2 ${transparent ? 'text-white' : 'text-gray-900'}`}
+              className={`md:hidden flex items-center justify-center ${transparent ? 'text-white' : 'text-gray-900'}`}
               aria-label="Toggle menu"
               style={{ minHeight: '44px', minWidth: '44px' }}
             >
-              {open ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+              {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
 
           {/* Mobile menu */}
           {open && (
-            <div className={`md:hidden pb-6 space-y-1 ${transparent ? 'bg-black/95 backdrop-blur-lg rounded-b-2xl px-4 mt-2 border border-white/10' : ''}`}>
+            <div className={`md:hidden pb-6 space-y-1 ${transparent ? 'bg-black/95 backdrop-blur-lg rounded-b-2xl px-4 mt-2 border border-white/10' : 'bg-white mt-2 shadow-lg rounded-b-2xl border border-gray-100'}`}>
               {nav.map((n) => (
                 <Link
                   key={n.to}
@@ -127,14 +141,14 @@ export default function Layout({ children }) {
               ))}
               <a
                 href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
-                className="block mt-3 text-center bg-brand-copper text-white px-4 py-3 rounded-xl text-base font-bold"
+                className={`block mt-3 text-center px-4 py-3 rounded-xl text-base font-bold ${transparent ? 'bg-brand-copper text-white' : 'bg-brand-copper text-white'}`}
                 style={{ minHeight: '48px' }}
               >
                 Call {PHONE}
               </a>
               <a
                 href="https://grease-trappers-admin-v2.onrender.com/login"
-                className="mt-2 flex items-center justify-center gap-2 bg-white/5 text-white px-4 py-3 rounded-xl text-base font-semibold border border-white/10"
+                className={`mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-base font-semibold border ${transparent ? 'bg-white/5 text-white border-white/10' : 'bg-gray-50 text-gray-700 border-gray-200'}`}
                 style={{ minHeight: '48px' }}
               >
                 <Lock className="w-4 h-4" />
@@ -145,7 +159,7 @@ export default function Layout({ children }) {
         </div>
       </header>
 
-      {!isHome && <div className="h-20" />}
+      {!isHome && <div className="h-16" />}
 
       <main className="flex-1">{children}</main>
 

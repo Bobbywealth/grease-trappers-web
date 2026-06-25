@@ -94,7 +94,7 @@ export default function Home() {
           <img
             src={HERO_IMAGE}
             alt="The Grease Trappers crew servicing a NJ restaurant grease trap"
-            className="absolute inset-0 w-full h-full object-cover animate-zoom-hero"
+            className="absolute inset-0 w-full h-full object-cover object-[center_70%] animate-zoom-hero"
             loading="eager"
             fetchpriority="high"
           />
@@ -103,7 +103,7 @@ export default function Home() {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                'linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.05) 70%, rgba(0,0,0,0) 85%)',
+                'linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.12) 50%, rgba(0,0,0,0.01) 70%, rgba(0,0,0,0) 85%)',
             }}
           />
           {/* Subtle warm bronze glow upper-left */}
@@ -111,23 +111,22 @@ export default function Home() {
 
           {/* Content sits directly over the image, aligned to bottom, centered */}
           <div className="relative z-10 max-w-7xl mx-auto px-10 lg:px-16 xl:px-20 pb-16 flex flex-col justify-end min-h-[700px]">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-3xl mx-auto text-center">
               <div className="animate-fade-up inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-xs sm:text-sm font-medium text-white">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                 AVAILABLE 24/7 FOR EMERGENCIES
               </div>
 
-              <h1 className="mt-8 font-display font-extrabold text-white text-4xl lg:text-5xl xl:text-[3.5rem] leading-[1.05] tracking-tight animate-fade-up-delay-1 drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
-                Commercial{' '}
-                <span className="text-brand-gold">Grease Trap</span>{' '}
-                Cleaning NJ Restaurants Can Count On
+              <h1 className="mt-4 font-display font-extrabold text-white text-4xl lg:text-5xl xl:text-[3.5rem] leading-[1.05] tracking-tight animate-fade-up-delay-1 drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]">
+                Commercial Grease Trap<br className="hidden sm:block" />
+                <span className="text-brand-gold">Cleaning</span> for<br className="hidden sm:block" /> New Jersey Restaurants
               </h1>
 
-              <p className="mt-6 text-base lg:text-lg text-gray-200 leading-relaxed animate-fade-up-delay-2">
+              <p className="mt-6 text-base lg:text-lg text-gray-200 leading-relaxed animate-fade-up-delay-2 max-w-xl mx-auto">
                 Licensed grease trap pumping, cleaning, maintenance and emergency service for restaurants throughout New Jersey.
               </p>
 
-              <div className="mt-8 flex flex-row gap-3 justify-center animate-fade-up-delay-3">
+              <div className="mt-10 flex flex-row gap-3 justify-center animate-fade-up-delay-3">
                 <Link
                   to="/quote"
                   className="group relative inline-flex items-center gap-3 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-copper/50 animate-bounce-soft"
@@ -146,6 +145,15 @@ export default function Home() {
                   <Phone className="w-5 h-5 text-brand-gold" />
                   <span>Call {PHONE}</span>
                 </a>
+              </div>
+              <div className="mt-6 flex items-center justify-center gap-3 text-xs text-gray-400 animate-fade-up-delay-4">
+                <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-brand-gold" /> Licensed</span>
+                <span className="text-brand-gold/40">•</span>
+                <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-brand-gold" /> Insured</span>
+                <span className="text-brand-gold/40">•</span>
+                <span className="flex items-center gap-1.5"><FileCheck className="w-3.5 h-3.5 text-brand-gold" /> DEP Compliant</span>
+                <span className="text-brand-gold/40">•</span>
+                <span className="flex items-center gap-1.5"><Building2 className="w-3.5 h-3.5 text-brand-gold" /> Serving All of New Jersey</span>
               </div>
             </div>
           </div>
@@ -246,13 +254,13 @@ export default function Home() {
       {/* ============================================================
           STATS — dark glass container, 2x2 on mobile, 1x4 on desktop
           ============================================================ */}
-      <section className="bg-[#0D0D0D] px-6 sm:px-8 lg:px-12 pb-12 sm:pb-16">
-        <Reveal className="max-w-7xl mx-auto bg-white/[0.03] backdrop-blur border-2 border-brand-copper rounded-3xl p-6 sm:p-10">
+      <section className="bg-[#0D0D0D] px-6 sm:px-8 lg:px-12 pt-4 pb-12 sm:pb-16">
+        <Reveal className="max-w-7xl mx-auto bg-white/[0.03] backdrop-blur border-2 border-brand-copper rounded-b-3xl p-6 sm:p-10">
           <RevealGroup className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 sm:gap-x-8">
-            <Item variant={popVariant}><Stat icon={<Calendar className="w-7 h-7 sm:w-9 sm:h-9" />} value="2008" label="Founded" /></Item>
-            <Item variant={popVariant}><Stat icon={<Users className="w-7 h-7 sm:w-9 sm:h-9" />} value="2,500+" label="Restaurants Served" /></Item>
-            <Item variant={popVariant}><Stat icon={<Clock className="w-7 h-7 sm:w-9 sm:h-9" />} value="24/7" label="Emergency Response" /></Item>
-            <Item variant={popVariant}><Stat icon={<Building2 className="w-7 h-7 sm:w-9 sm:h-9" />} value="100%" label="Commercial Kitchens" /></Item>
+            <Item variant={popVariant}><Stat icon={<Calendar className="w-8 h-8 sm:w-10 sm:h-10" />} value="2008" label="Founded" /></Item>
+            <Item variant={popVariant}><Stat icon={<Users className="w-8 h-8 sm:w-10 sm:h-10" />} value="2,500+" label="Restaurants Served" /></Item>
+            <Item variant={popVariant}><Stat icon={<Clock className="w-8 h-8 sm:w-10 sm:h-10" />} value="24/7" label="Emergency Response" /></Item>
+            <Item variant={popVariant}><Stat icon={<Building2 className="w-8 h-8 sm:w-10 sm:h-10" />} value="100%" label="Commercial Kitchens" /></Item>
           </RevealGroup>
         </Reveal>
       </section>
