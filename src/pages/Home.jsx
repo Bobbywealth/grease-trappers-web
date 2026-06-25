@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Droplets, ShieldCheck, Clock, Award, Truck, FileCheck, Wrench,
+  Droplets, Shield, ShieldCheck, Clock, Award, Truck, FileCheck, Wrench,
   ArrowRight, Check, Star, Phone, Calendar, Users, Building2, Menu
 } from 'lucide-react';
 import { PHONE, HERO_IMAGE } from '../config/brand';
@@ -21,7 +21,7 @@ export default function Home() {
           - Mobile (<md): full-bleed background image, stacked layout
           ============================================================ */}
       <section className="relative w-full overflow-hidden bg-black">
-        {/* DESKTOP HERO: full-bleed image background, copy overlaid on the left */}
+        {/* DESKTOP HERO: full-bleed image with left-side darken for text legibility */}
         <div className="hidden md:block relative min-h-[700px]">
           {/* Full-width background image */}
           <img
@@ -31,76 +31,93 @@ export default function Home() {
             loading="eager"
             fetchpriority="high"
           />
-          {/* Cinematic left-to-right overlay for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/20" />
+          {/* Left-side darken: ~50% width gradient, fully transparent on the right so the photo stays vivid */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                'linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 75%)',
+            }}
+          />
           {/* Subtle warm bronze glow upper-left */}
           <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-brand-copper/40 rounded-full blur-[120px] pointer-events-none" />
 
-          <div className="relative z-10 min-h-[700px] grid grid-cols-2">
-            {/* Left column — copy over the image */}
-            <div className="relative flex items-center">
-              <div className="relative z-10 w-full px-10 lg:px-16 xl:px-20 py-20 max-w-2xl ml-auto">
-                <div className="animate-fade-up">
-                  <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-xs sm:text-sm font-medium text-white">
-                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    AVAILABLE 24/7 FOR EMERGENCIES
+          {/* Content sits directly over the image (no left/right grid columns) */}
+          <div className="relative z-10 max-w-7xl mx-auto px-10 lg:px-16 xl:px-20 py-20">
+            <div className="max-w-2xl">
+              <div className="animate-fade-up">
+                <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-xs sm:text-sm font-medium text-white">
+                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                  AVAILABLE 24/7 FOR EMERGENCIES
+                </div>
+              </div>
+
+              <h1 className="mt-8 font-display font-extrabold text-white text-4xl lg:text-5xl xl:text-[3.5rem] leading-[1.05] tracking-tight animate-fade-up-delay-1">
+                Commercial{' '}
+                <span className="text-brand-gold">Grease Trap</span>{' '}
+                Cleaning That Restaurants Can Count On
+              </h1>
+
+              <p className="mt-6 text-base lg:text-lg text-gray-200 max-w-[540px] leading-relaxed animate-fade-up-delay-2">
+                Licensed grease trap pumping, cleaning, maintenance and emergency service for restaurants throughout New Jersey.
+              </p>
+
+              <div className="mt-8 flex flex-row gap-3 animate-fade-up-delay-3">
+                <Link
+                  to="/quote"
+                  className="group inline-flex items-center gap-3 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-copper/50"
+                  style={{
+                    background: 'linear-gradient(135deg, #B97832 0%, #8C5523 50%, #6E3F1A 100%)',
+                    boxShadow: '0 10px 30px -10px rgba(140, 85, 35, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                  }}
+                >
+                  <span>Get Free Quote</span>
+                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </Link>
+                <a
+                  href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border-2 border-white/30 hover:bg-white/20 text-white font-bold text-base px-7 py-4 rounded-xl transition-all hover:-translate-y-0.5"
+                >
+                  <Phone className="w-5 h-5" />
+                  Call {PHONE}
+                </a>
+              </div>
+
+              {/* Service badges — row of 3 glass tiles under the buttons */}
+              <div className="mt-6 flex flex-row gap-3 animate-fade-up-delay-4">
+                <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 text-white">
+                  <Clock className="w-4 h-4 text-brand-gold" />
+                  <span className="text-sm font-semibold">Same-Day Service</span>
+                </div>
+                <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 text-white">
+                  <Shield className="w-4 h-4 text-brand-gold" />
+                  <span className="text-sm font-semibold">Licensed & Insured</span>
+                </div>
+                <div className="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 text-white">
+                  <ShieldCheck className="w-4 h-4 text-brand-gold" />
+                  <span className="text-sm font-semibold">NJDEP Compliant</span>
+                </div>
+              </div>
+
+              {/* Trust strip — overlaid inside the hero, bottom-left */}
+              <div className="mt-10 animate-fade-up-delay-5">
+                <div className="flex flex-col gap-2 text-white">
+                  <div className="flex items-center gap-3">
+                    <div className="flex text-brand-gold">
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                    </div>
+                    <span className="text-sm lg:text-base font-medium">Trusted by restaurants throughout New Jersey</span>
+                  </div>
+                  <div className="text-xs lg:text-sm text-gray-300 flex flex-row gap-x-3">
+                    <span>NJDEP Licensed</span><span>•</span>
+                    <span>Fully Insured</span><span>•</span>
+                    <span>Emergency Response</span>
                   </div>
                 </div>
-
-                <h1 className="mt-8 font-display font-extrabold text-white text-4xl lg:text-5xl xl:text-[3.5rem] leading-[1.05] tracking-tight animate-fade-up-delay-1">
-                  Commercial{' '}
-                  <span className="text-brand-gold">Grease Trap</span>{' '}
-                  Cleaning That Restaurants Can Count On
-                </h1>
-
-                <p className="mt-6 text-base lg:text-lg text-gray-300 max-w-[540px] leading-relaxed animate-fade-up-delay-2">
-                  Licensed grease trap pumping, cleaning, maintenance, installation and emergency service throughout New Jersey. Fast response. Fully insured. NJDEP compliant.
-                </p>
-
-                <div className="mt-10 flex flex-row gap-3 animate-fade-up-delay-3">
-                  <Link
-                    to="/quote"
-                    className="group inline-flex items-center gap-3 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-copper/50"
-                    style={{
-                      background: 'linear-gradient(135deg, #B97832 0%, #8C5523 50%, #6E3F1A 100%)',
-                      boxShadow: '0 10px 30px -10px rgba(140, 85, 35, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-                    }}
-                  >
-                    <span>Get Free Quote</span>
-                    <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" />
-                  </Link>
-                  <a
-                    href={`tel:${PHONE.replace(/[^\d]/g, '')}`}
-                    className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border-2 border-white/30 hover:bg-white/20 text-white font-bold text-base px-7 py-4 rounded-xl transition-all hover:-translate-y-0.5"
-                  >
-                    <Phone className="w-5 h-5" />
-                    Call {PHONE}
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Right column — empty spacer (image is the full-bleed background) */}
-            <div aria-hidden="true" />
-          </div>
-
-          {/* Desktop trust strip — sits below the hero */}
-          <div className="bg-[#0D0D0D] border-t border-brand-copper/20">
-            <div className="max-w-7xl mx-auto px-10 lg:px-16 xl:px-20 py-6 flex flex-row items-center justify-between gap-4 text-white">
-              <div className="flex items-center gap-3">
-                <div className="flex text-brand-gold">
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                  <Star className="w-5 h-5 fill-current" />
-                </div>
-                <span className="text-sm lg:text-base font-medium">Trusted by restaurants throughout New Jersey</span>
-              </div>
-              <div className="text-xs lg:text-sm text-gray-300 flex flex-row gap-x-4">
-                <span>NJDEP Licensed</span><span>•</span>
-                <span>Fully Insured</span><span>•</span>
-                <span>Emergency Response</span>
               </div>
             </div>
           </div>

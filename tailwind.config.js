@@ -42,6 +42,7 @@ export default {
         'fade-up-delay-2': 'fadeUp 0.8s ease-out 0.2s forwards',
         'fade-up-delay-3': 'fadeUp 0.8s ease-out 0.3s forwards',
         'fade-up-delay-4': 'fadeUp 0.8s ease-out 0.4s forwards',
+        'fade-up-delay-5': 'fadeUp 0.8s ease-out 0.5s forwards',
       },
     },
   },
