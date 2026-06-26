@@ -297,19 +297,19 @@ function OperationsHero({ employees, trucks, runningJobs, scheduled, emergencies
           </span>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-          <OpsStat icon={Users}        value={employees}   label="Employees"   tint="text-blue-300"   glow="bg-blue-400/20" />
-          <OpsStat icon={Truck}        value={trucks}      label="Trucks"      tint="text-amber-300"  glow="bg-amber-400/20" />
-          <OpsStat icon={Activity}     value={runningJobs} label="Jobs Running" tint="text-emerald-300" glow="bg-emerald-400/20" />
-          <OpsStat icon={Clock}        value={scheduled}   label="Scheduled"   tint="text-violet-300" glow="bg-violet-400/20" />
-          <OpsStat icon={AlertOctagon} value={emergencies} label="Emergencies" tint="text-red-300"    glow="bg-red-400/20" />
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+          <OpsStat icon={Users}        value={employees}   label="Crew"          shortLabel="Crew"    tint="text-blue-300"   glow="bg-blue-400/20" />
+          <OpsStat icon={Truck}        value={trucks}      label="Trucks"       shortLabel="Fleet"   tint="text-amber-300"  glow="bg-amber-400/20" />
+          <OpsStat icon={Activity}     value={runningJobs} label="Running"      shortLabel="Live"    tint="text-emerald-300" glow="bg-emerald-400/20" />
+          <OpsStat icon={Clock}        value={scheduled}   label="Scheduled"    shortLabel="Soon"    tint="text-violet-300" glow="bg-violet-400/20" />
+          <OpsStat icon={AlertOctagon} value={emergencies} label="Emergencies"  shortLabel="Urgent"  tint="text-red-300"    glow="bg-red-400/20" />
         </div>
       </div>
     </div>
   );
 }
 
-function OpsStat({ icon: Icon, value, label, tint, glow }) {
+function OpsStat({ icon: Icon, value, label, shortLabel, tint, glow }) {
   return (
     <div className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-3">
       <div className={`absolute -top-6 -right-6 w-16 h-16 ${glow} rounded-full blur-xl`} />
@@ -317,9 +317,12 @@ function OpsStat({ icon: Icon, value, label, tint, glow }) {
         <div className={`w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center ${tint}`}>
           <Icon className="w-5 h-5" strokeWidth={2.25} />
         </div>
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <div className="text-2xl font-bold text-white tabular-nums leading-none">{value}</div>
-          <div className="text-[11px] font-semibold text-white/60 uppercase tracking-wider mt-1 truncate">{label}</div>
+          <div className="text-[11px] font-semibold text-white/60 uppercase tracking-wider mt-1 truncate">
+            <span className="lg:hidden">{shortLabel || label}</span>
+            <span className="hidden lg:inline">{label}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -384,17 +387,68 @@ const STATUS_COLORS = {
   cancelled:    { color: '#EF4444', label: 'Cancelled',   badge: 'badge-red',    bar: 'bg-gradient-to-r from-red-400 to-red-600' },
 };
 
-// Fake weather (would be from a real API)
+// Real weather (Open-Meteo, free no-key API)
+const WEATHER_CODE = {
+  0:  ['Clear',          'sun'],
+  1:  ['Mostly clear',   'sun'],
+  2:  ['Partly cloudy',  'cloud-sun'],
+  3:  ['Overcast',       'cloud'],
+  45: ['Foggy',          'cloud'],
+  48: ['Foggy',          'cloud'],
+  51: ['Drizzle',        'cloud-rain'],
+  53: ['Drizzle',        'cloud-rain'],
+  55: ['Drizzle',        'cloud-rain'],
+  61: ['Light rain',     'cloud-rain'],
+  63: ['Rain',           'cloud-rain'],
+  65: ['Heavy rain',     'cloud-rain'],
+  71: ['Light snow',     'cloud-rain'],
+  73: ['Snow',           'cloud-rain'],
+  75: ['Heavy snow',     'cloud-rain'],
+  77: ['Snow',           'cloud-rain'],
+  80: ['Showers',        'cloud-rain'],
+  81: ['Heavy showers',  'cloud-rain'],
+  82: ['Violent showers','cloud-rain'],
+  85: ['Snow showers',   'cloud-rain'],
+  86: ['Heavy snow',     'cloud-rain'],
+  95: ['Thunderstorm',   'cloud-rain'],
+  96: ['Thunderstorm',   'cloud-rain'],
+  99: ['Thunderstorm',   'cloud-rain'],
+};
+
 function WeatherPill() {
-  // Placeholder — real weather would hit an API
-  const hour = new Date().getHours();
-  const Icon = hour < 18 ? Sun : Cloud;
-  const temp = 72;
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=40.7357&longitude=-74.1724&current=temperature_2m,weather_code&temperature_unit=fahrenheit&timezone=America%2FNew_York';
+    fetch(url)
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if (d?.current) setData(d.current); })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
+
+  const code = data?.weather_code ?? 0;
+  const meta = WEATHER_CODE[code] || WEATHER_CODE[0];
+  const temp = data ? Math.round(data.temperature_2m) : null;
+  const isRainy = ['cloud-rain', 'cloud'].includes(meta[1]);
+  const gradient = isRainy
+    ? 'from-slate-100 to-blue-50'
+    : 'from-amber-50 to-blue-50';
+  const iconColor = isRainy ? 'text-blue-500' : 'text-amber-500';
+
+  // Icon selection
+  const Icon = isRainy ? CloudRain : Sun;
+
   return (
-    <div className="hidden lg:flex items-center gap-2 px-3 h-9 rounded-full bg-gradient-to-r from-amber-50 to-blue-50 border border-canvas-border shadow-sm">
-      <Icon className="w-4 h-4 text-amber-500" />
-      <span className="text-sm font-semibold text-ink">{temp}°</span>
-      <span className="text-xs text-ink-muted">Newark</span>
+    <div className={`hidden lg:flex items-center gap-2 px-3 h-9 rounded-full bg-gradient-to-r ${gradient} border border-canvas-border shadow-sm`}>
+      <Icon className={`w-4 h-4 ${iconColor}`} />
+      <span className="text-sm font-semibold text-ink tabular-nums">
+        {loading ? '···' : `${temp}°`}
+      </span>
+      <span className="text-xs text-ink-muted truncate max-w-[100px]">
+        {meta[0]} · Newark
+      </span>
     </div>
   );
 }
@@ -466,8 +520,8 @@ export default function Dashboard() {
     <div className="relative min-h-screen bg-gradient-to-b from-canvas to-[#f9fbff] pb-32 lg:pb-12">
       <div className="p-4 sm:p-6 lg:p-8 max-w-[1600px] mx-auto space-y-6">
 
-        {/* ===== HERO GREETING ===== */}
-        <div className="relative">
+        {/* ===== HERO GREETING — desktop only (mobile layout renders its own) ===== */}
+        <div className="relative hidden lg:block">
           <div className="flex items-start justify-between gap-4">
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold text-ink tracking-tight leading-tight">
